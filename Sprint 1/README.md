@@ -46,100 +46,228 @@ jkmkmkmk
 
 # [Exercícios](./Exercícios/)
 
-### 2.1 Exercício Biblioteca
----
+## 2.1 Exercício Biblioteca
 
+>1. Apresente a query para listar todos os livros publicados após 2014. Ordenar pela coluna cod, em ordem crescente, as linhas. Atenção às colunas esperadas no resultado final: cod, titulo, autor, editora, valor, publicacao, edicao, idioma.
 
-1. Apresente a query para listar todos os livros publicados após 2014. Ordenar pela coluna cod, em ordem crescente, as linhas. Atenção às colunas esperadas no resultado final: cod, titulo, autor, editora, valor, publicacao, edicao, idioma.
+Resolução: Para resolver este exercício, iniciei explorando a estrutura da tabela livro com um SELECT *, a fim de compreender os dados disponíveis. Como o enunciado solicita todas as colunas da tabela, optei por manter o SELECT *, o que garante que todos os campos esperados sejam retornados. A filtragem foi feita com base na data de publicação, utilizando o operador > para retornar apenas os livros publicados após 2014. A ordenação foi aplicada sobre a coluna cod, conforme solicitado, em ordem crescente.
 
 [Resposta Ex.1](./Exercícios/1.%20Exercício%20Biblioteca/exercício1.sql)
 
-2. Apresente a query para listar os 10 livros mais caros. Ordenar as linhas pela coluna valor, em ordem decrescente. Atenção às colunas esperadas no resultado final:  titulo, valor.
+>2. Apresente a query para listar os 10 livros mais caros. Ordenar as linhas pela coluna valor, em ordem decrescente. Atenção às colunas esperadas no resultado final:  titulo, valor.
+
+Resolução: A abordagem começou com a seleção apenas das colunas requeridas pelo enunciado: titulo e valor, da tabela livros. Em seguida, foi aplicada uma ordenação decrescente pela coluna valor, para que os livros com os maiores preços fossem apresentados primeiro. Por fim, utilizei a cláusula LIMIT 10 para restringir o resultado aos 10 livros mais caros, conforme solicitado.
 
 [Resposta Ex.2](./Exercícios/1.%20Exercício%20Biblioteca/exercício2.sql)
 
-3. Apresente a query para listar as 5 editoras com mais livros na biblioteca. O resultado deve conter apenas as colunas quantidade, nome, estado e cidade. Ordenar as linhas pela coluna que representa a quantidade de livros em ordem decrescente.
+> 3. Apresente a query para listar as 5 editoras com mais livros na biblioteca. O resultado deve conter apenas as colunas quantidade, nome, estado e cidade. Ordenar as linhas pela coluna que representa a quantidade de livros em ordem decrescente.
+
+Resolução: Para resolver esse exercício, utilizei a função COUNT() sobre a coluna cod da tabela livro para calcular a quantidade de livros associados a cada editora. Em seguida, selecionei os campos adicionais requeridos: o nome da editora, bem como estado e cidade, provenientes da tabela de endereco. As tabelas foram relacionadas utilizando JOIN, conectando os livros à editora e a editora ao endereço. A cláusula GROUP BY foi aplicada com base na identificação da editora, permitindo a contagem por grupo. Por fim, os resultados foram ordenados de forma decrescente pela quantidade de livros e limitados aos 5 primeiros registros.
 
 [Resposta Ex.3](./Exercícios/1.%20Exercício%20Biblioteca/exercício3.sql)
 
-4. Apresente a query para listar a quantidade de livros publicada por cada autor. Ordenar as linhas pela coluna nome (autor), em ordem crescente. Além desta, apresentar as colunas codautor, nascimento e quantidade (total de livros de sua autoria).
+> 4. Apresente a query para listar a quantidade de livros publicada por cada autor. Ordenar as linhas pela coluna nome (autor), em ordem crescente. Além desta, apresentar as colunas codautor, nascimento e quantidade (total de livros de sua autoria).
+
+Resolução:A construção da query teve início a partir da tabela autor, pois o objetivo era relacionar os autores com os livros de sua autoria. Utilizei um JOIN para conectar a tabela autor à tabela livro, função COUNT() foi aplicada para contar quantos livros cada autor publicou. Em seguida, os dados foram agrupados com GROUP BY com base no codautor, garantindo a contagem correta por autor. Por fim, ordenei os resultados de forma crescente pelo nome do autor, conforme especificado no enunciado.
 
 [Resposta Ex.4](./Exercícios/1.%20Exercício%20Biblioteca/exercício4.sql)
 
-5. Apresente a query para listar o nome dos autores que publicaram livros através de editoras NÃO situadas na região sul do Brasil. Ordene o resultado pela coluna nome, em ordem crescente. Não podem haver nomes repetidos em seu retorno.
+> 5. Apresente a query para listar o nome dos autores que publicaram livros através de editoras NÃO situadas na região sul do Brasil. Ordene o resultado pela coluna nome, em ordem crescente. Não podem haver nomes repetidos em seu retorno.
+
+Resolução: A query foi construída a partir da tabela autor, realizando um JOIN com a tabela livro para identificar os livros escritos por cada autor. Em seguida, conectei a tabela editora, responsável pela publicação dos livros, e, por fim, a tabela endereco, que contém a localização das editoras. A cláusula WHERE foi utilizada para filtrar os registros de editoras fora da região sul do Brasil, excluindo os estados Paraná, Santa Catarina e Rio Grande do Sul. A cláusula DISTINCT foi aplicada para garantir que o nome de cada autor apareça apenas uma vez no resultado. Por fim, os dados foram ordenados em ordem crescente pelo nome do autor.
 
 [Resposta Ex.5](./Exercícios/1.%20Exercício%20Biblioteca/exercício5.sql)
 
-6. Apresente a query para listar o autor com maior número de livros publicados. O resultado deve conter apenas as colunas codautor, nome, quantidade_publicacoes.
+> 6. Apresente a query para listar o autor com maior número de livros publicados. O resultado deve conter apenas as colunas codautor, nome, quantidade_publicacoes.
+
+Resolução: Nesta query, foi utilizada a função COUNT() para calcular a quantidade de livros publicados por cada autor, nomeando esse resultado como quantidade_publicacoes. A consulta foi iniciada a partir da tabela autor, que é unida à tabela livro por meio do JOIN. A cláusula GROUP BY foi utilizada para agrupar os dados por autor, permitindo a contagem correta das publicações por autor. Em seguida, a ordenação foi feita de forma decrescente pela quantidade de publicações, e a cláusula LIMIT 1 foi usada para retornar apenas o autor com maior número de livros publicados.
 
 [Resposta Ex.6](./Exercícios/1.%20Exercício%20Biblioteca/exercício6.sql)
 
-7. Apresente a query para listar o nome dos autores com nenhuma publicação. Apresentá-los em ordem crescente.
+> 7. Apresente a query para listar o nome dos autores com nenhuma publicação. Apresentá-los em ordem crescente.
+
+Resolução: A consulta foi construída a partir da tabela autor, utilizando um LEFT JOIN com a tabela livro para manter todos os autores na listagem, mesmo aqueles que não possuem livros associados. Esse tipo de junção permite identificar os autores sem publicações, já que os campos da tabela livro aparecerão como NULL nesses casos. Para filtrar apenas os autores sem livros, foi aplicada a cláusula WHERE livro.cod IS NULL. Por fim, os nomes foram ordenados em ordem crescente conforme solicitado.
 
 [Resposta Ex.7](./Exercícios/1.%20Exercício%20Biblioteca/exercício7.sql)
 
 
 ---
-### 2.2 Exercício Loja
----
-8. Apresente a query para listar o código e o nome do vendedor com maior número de vendas (contagem), e que estas vendas estejam com o status concluída. As colunas presentes no resultado devem ser, portanto, cdvdd e nmvdd.
+## 2.2 Exercício Loja
+
+> 8. Apresente a query para listar o código e o nome do vendedor com maior número de vendas (contagem), e que estas vendas estejam com o status concluída. As colunas presentes no resultado devem ser, portanto, cdvdd e nmvdd.
+
+Resolução: A solução foi elaborada com o uso de uma subquery, apelidada de v. Dentro dessa subquery, utilizei a TBVENDAS e apliquei o filtro WHERE status = 'Concluído' para considerar apenas as vendas finalizadas. Em seguida,  agrupei pelo código do vendedor, fiz a contagem de linhas (vendas de cada vendedor) por meio do COUNT(*), ordenei os vendedores pelo total_vendas do maior para o menor e limitei a 1 para que retornasse o que mais vendeu. Por meio do JOIN fiz a junção das duas tabelas: TBVENDEDOR de alias 'vdd' com a subquery 'v' para conseguirmos o nome do vendedor que mais vendeu. No SELECT, foram retornadas apenas as colunas cdvdd e nmvdd, conforme solicitado.
 
 [Resposta Ex.8](./Exercícios/2.%20Exercicio%20Loja/exercício8.sql)
 
-9. Apresente a query para listar o código e nome do produto mais vendido entre as datas de 2014-02-03 até 2018-02-02, e que estas vendas estejam com o status concluída. As colunas presentes no resultado devem ser cdpro e nmpro.
+> 9. Apresente a query para listar o código e nome do produto mais vendido entre as datas de 2014-02-03 até 2018-02-02, e que estas vendas estejam com o status concluída. As colunas presentes no resultado devem ser cdpro e nmpro.
+
+Resolução: A estratégia adotada foi iniciar com uma subquery (p) que consulta a tabela TBVENDAS. Dentro dela, apliquei dois filtros principais: o primeiro para selecionar apenas as vendas com o status 'Concluído', e o segundo utilizando a cláusula BETWEEN para limitar as vendas ao intervalo entre 2014-02-03 e 2018-02-02. Após aplicar os filtros, agrupei os resultados pelo código e nome do produto e utilizei a função SUM(qtd) para calcular o total de unidades vendidas por produto.
+Em seguida, os dados foram ordenados de forma decrescente para destacar o produto mais vendido, e o LIMIT 1 garantiu que apenas esse produto fosse retornado. A query externa apenas seleciona as colunas necessárias da subquery.
 
 [Resposta Ex.9](./Exercícios/2.%20Exercicio%20Loja/exercício9.sql)
 
-10. A comissão de um vendedor é definida a partir de um percentual sobre o total de vendas (quantidade * valor unitário) por ele realizado. O percentual de comissão de cada vendedor está armazenado na coluna perccomissao, tabela tbvendedor. Com base em tais informações, calcule a comissão de todos os vendedores, considerando todas as vendas armazenadas na base de dados com status concluído. As colunas presentes no resultado devem ser vendedor, valor_total_vendas e comissao. O valor de comissão deve ser apresentado em ordem decrescente arredondado na segunda casa decimal.
+> 10. A comissão de um vendedor é definida a partir de um percentual sobre o total de vendas (quantidade * valor unitário) por ele realizado. O percentual de comissão de cada vendedor está armazenado na coluna perccomissao, tabela tbvendedor. Com base em tais informações, calcule a comissão de todos os vendedores, considerando todas as vendas armazenadas na base de dados com status concluído. As colunas presentes no resultado devem ser vendedor, valor_total_vendas e comissao. O valor de comissão deve ser apresentado em ordem decrescente arredondado na segunda casa decimal.
+
+Resolução: Para resolver o exercício, foi feita a junção da tabela de vendas com a de vendedores. Em seguida, apliquei o filtro para considerar apenas as vendas com status “Concluído”. No SELECT, calculei o valor total vendido por cada vendedor multiplicando a quantidade pelo valor unitário e somando os resultados. A comissão foi calculada multiplicando esse total pelo percentual de comissão, convertido para decimal. Ambos os valores foram arredondados para duas casas decimais com a função ROUND. Por fim, agrupei os dados por vendedor e ordenei os resultados pela comissão em ordem decrescente.
 
 [Resposta Ex.10](./Exercícios/2.%20Exercicio%20Loja/exercício10.sql)
 
-11. Apresente a query para listar o código e nome cliente com maior gasto na loja. As colunas presentes no resultado devem ser cdcli, nmcli e gasto, esta última representando o somatório das vendas (concluídas) atribuídas ao cliente.
+> 11. Apresente a query para listar o código e nome cliente com maior gasto na loja. As colunas presentes no resultado devem ser cdcli, nmcli e gasto, esta última representando o somatório das vendas (concluídas) atribuídas ao cliente.
+
+Resolução: A consulta foi feita sobre a tabela de vendas, filtrando apenas os registros com status "Concluído". No SELECT, foram selecionados o código, o nome do cliente e o gasto total, calculado multiplicando a quantidade pelo valor unitário de cada venda e somando os resultados. O valor foi arredondado para duas casas decimais com ROUND. A agregação foi feita por cliente e os resultados ordenados do maior para o menor gasto, com o LIMIT 1 retornando apenas o cliente que mais gastou.
 
 [Resposta Ex.11](./Exercícios/2.%20Exercicio%20Loja/exercício11.sql)
 
-12. Apresente a query para listar código, nome e data de nascimento dos dependentes do vendedor com menor valor total bruto em vendas (não sendo zero). As colunas presentes no resultado devem ser cddep, nmdep, dtnasc e valor_total_vendas. Observação: Apenas vendas com status concluído.
+> 12. Apresente a query para listar código, nome e data de nascimento dos dependentes do vendedor com menor valor total bruto em vendas (não sendo zero). As colunas presentes no resultado devem ser cddep, nmdep, dtnasc e valor_total_vendas. Observação: Apenas vendas com status concluído.
+
+Resolução: Utilizei a cláusula WITH para criar a subconsulta TotalVendas, que calcula o total bruto de vendas por vendedor, considerando apenas vendas com status "Concluído" e eliminando aqueles com total zero usando o HAVING. Em seguida, criei a subconsulta VendedorMenorVenda para identificar o vendedor com menor valor total de vendas. No SELECT principal, juntei essa informação com a tabela de dependentes para retornar os dados dos dependentes vinculados ao vendedor com menor faturamento.
 
 [Resposta Ex.12](./Exercícios/2.%20Exercicio%20Loja/exercício12.sql)
 
-13. Apresente a query para listar os 10 produtos menos vendidos pelos canais de E-Commerce ou Matriz (Considerar apenas vendas concluídas). As colunas presentes no resultado devem ser cdpro, nmcanalvendas, nmpro e quantidade_vendas.
+> 13. Apresente a query para listar os 10 produtos menos vendidos pelos canais de E-Commerce ou Matriz (Considerar apenas vendas concluídas). As colunas presentes no resultado devem ser cdpro, nmcanalvendas, nmpro e quantidade_vendas.
+
+Resolução: No SELECT, defini as colunas desejadas e calculei o total de vendas por produto e canal usando SUM(qtd). Filtrei os dados considerando apenas vendas concluídas com os canais "Ecommerce" ou "Matriz", agrupando os resultados por produto e canal. Por fim, ordenei pela soma das quantidades vendidas em ordem crescente e limitei a 10 registros para obter os menos vendidos.
 
 [Resposta Ex.13](./Exercícios/2.%20Exercicio%20Loja/exercício13.sql)
 
-14. Apresente a query para listar o gasto médio por estado da federação. As colunas presentes no resultado devem ser estado e gastomedio. Considere apresentar a coluna gastomedio arredondada na segunda casa decimal e ordenado de forma decrescente. Observação: Apenas vendas com status concluído.
+> 14. Apresente a query para listar o gasto médio por estado da federação. As colunas presentes no resultado devem ser estado e gastomedio. Considere apresentar a coluna gastomedio arredondada na segunda casa decimal e ordenado de forma decrescente. Observação: Apenas vendas com status concluído.
+
+Resolução:
 
 [Resposta Ex.14](./Exercícios/2.%20Exercicio%20Loja/exercício14.sql)
 
-15. Apresente a query para listar os códigos das vendas identificadas como deletadas. Apresente o resultado em ordem crescente.
+> 15. Apresente a query para listar os códigos das vendas identificadas como deletadas. Apresente o resultado em ordem crescente.
+
+Resolução:
 
 [Resposta Ex.15](./Exercícios/2.%20Exercicio%20Loja/exercício15.sql)
 
-16. Apresente a query para listar a quantidade média vendida de cada produto agrupado por estado da federação. As colunas presentes no resultado devem ser estado e nmprod e quantidade_media. Considere arredondar o valor da coluna quantidade_media na quarta casa decimal. Ordene os resultados pelo estado (1º) e nome do produto (2º). Obs: Somente vendas concluídas.
+> 16. Apresente a query para listar a quantidade média vendida de cada produto agrupado por estado da federação. As colunas presentes no resultado devem ser estado e nmprod e quantidade_media. Considere arredondar o valor da coluna quantidade_media na quarta casa decimal. Ordene os resultados pelo estado (1º) e nome do produto (2º). Obs: Somente vendas concluídas.
+
+Resolução:
 
 [Resposta Ex.16](./Exercícios/2.%20Exercicio%20Loja/exercício16.sql)
 
 
 ---
 
-### 3. Exercício Extração de Dados
----
+## 2.3 Exercício Extração de Dados
 
-3.1 Exportar o resultado da query que obtém os 10 livros mais caros para um arquivo CSV. Utilizar o caractere ";" (ponto e vírgula) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nomes de cabeçalho que listamos abaixo: CodLivro Titulo CodAutor NomeAutor Valor CodEditora NomeEditora
+1. Exportar o resultado da query que obtém os 10 livros mais caros para um arquivo CSV. Utilizar o caractere ";" (ponto e vírgula) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nomes de cabeçalho que listamos abaixo: CodLivro Titulo CodAutor NomeAutor Valor CodEditora NomeEditora
 
 [Etapa 1 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa1.csv)
 
-3.2 Exportar o resultado da query que obtém as 5 editoras com maior quantidade de livros na biblioteca para um arquivo CSV. Utilizar o caractere "|" (pipe) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nome de cabeçalho que listamos abaixo: CodEditora NometEditora QuantidadeLivros
+2. Exportar o resultado da query que obtém as 5 editoras com maior quantidade de livros na biblioteca para um arquivo CSV. Utilizar o caractere "|" (pipe) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nome de cabeçalho que listamos abaixo: CodEditora NometEditora QuantidadeLivros
 
 [Etapa 2 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa2.csv)
 
 
 
-# Evidências
+# [Evidências](./Evidencias/)
+
+## 3.1 Exercício Biblioteca
+
+1. A execução da query retornou com sucesso todos os registros de livros cuja data de publicação é posterior a 31 de dezembro de 2014. Os dados foram apresentados ordenadamente pela coluna cod, e todas as colunas solicitadas estavam presentes no resultado, validando a correção da abordagem. Conforme podemos ver na imagem a seguir:
+
+![Evidência 1](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício1.png)
+
+2. A consulta retornou corretamente os 10 livros com os maiores valores cadastrados na tabela livro, ordenados do mais caro ao mais barato. O resultado exibiu exclusivamente as colunas titulo e valor, conforme especificado no enunciado, atendendo a todos os critérios do exercício. Conforme podemos ver na imagem a seguir:
+
+![Evidência 2](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício2.png)
 
 
-Ao executar o código do exercício ... observei que ... conforme podemos ver na imagem a seguir:
+3. A query retornou com sucesso as 5 editoras com maior número de livros cadastrados na biblioteca, exibindo a contagem de livros (quantidade), o nome da editora, e sua respectiva localização (estado e cidade). A ordenação decrescente destacou as editoras mais representativas em termos de volume de publicações, atendendo a todos os critérios definidos no enunciado. Conforme podemos ver na imagem a seguir:
 
-![Evidencia 1](./Evidencias/sample.webp)
+![Evidência 3](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício3.png)
+
+
+4. Nesse exercício consulta não retornou o esperado, o resultado obtido foi a quantidade de livros publicada por cada autor, exibindo também o código (codautor), o nome e a data de nascimento de cada um. Os dados foram apresentados em ordem alfabética crescente pelo nome do autor, facilitando a leitura e análise. No entanto, a minha resolução não coincidiu com os valores que deveriam retornar para obtenção de sucesso do exercício. Conforme podemos ver na imagem a seguir:
+
+![Evidência 4](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício4.png)
+
+
+
+5. A consulta retornou corretamente a lista de autores que tiveram livros publicados por editoras localizadas fora da região sul, sem repetições de nomes e com a ordenação alfabética conforme solicitado. O uso de DISTINCT foi essencial para garantir a unicidade dos nomes no resultado, atendendo a todos os requisitos do exercício. Conforme podemos ver na imagem a seguir:
+
+![Evidência 5](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício5.png)
+
+
+
+6. A execução da query retornou corretamente o autor com o maior número de livros cadastrados na base de dados. O resultado exibiu as colunas codautor, nome e quantidade_publicacoes, conforme exigido no enunciado. O uso das funções de agregação e ordenação permitiu identificar o autor com maior número de livros publicados. Conforme podemos ver na imagem a seguir:
+
+![Evidência 6](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício6.png)
+
+
+7. A execução da query retornou corretamente os nomes dos autores que ainda não possuem nenhum livro publicado na base de dados. Os resultados vieram organizados em ordem alfabética, e a lógica de uso do LEFT JOIN com verificação de NULL garantiu a exatidão do filtro. A solução atendeu integralmente aos critérios estabelecidos no exercício. Conforme podemos ver na imagem a seguir:
+
+![Evidência 7](./Exercícios/1.%20Exercício%20Biblioteca/Evidências/exercício7.png)
+
+
+---
+
+## 3.2 Exercício Loja
+
+8. A query retornou com precisão o código e o nome do vendedor que mais realizou vendas com status concluído. A utilização de subquery e agregação garantiu que o resultado fosse restrito ao vendedor mais eficiente em termos de número de vendas finalizadas, respeitando todos os requisitos propostos no enunciado. Conforme podemos ver na imagem a seguir:
+
+![Evidência 8](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício8.png)
+
+
+9. A consulta retornou corretamente o produto mais vendido (em quantidade de unidades) dentro do intervalo de tempo especificado e com o status de venda concluído. As colunas cdpro e nmpro foram apresentadas conforme exigido, garantindo clareza e foco no produto de maior saída nesse período. Conforme podemos ver na imagem a seguir:
+
+![Evidência 9](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício9.png)
+
+
+10. A query retornou com precisão a lista de todos os vendedores que realizaram vendas concluídas, apresentando o valor total vendido e a comissão individual, ambos arredondados corretamente. A ordenação por comissão permitiu uma visualização clara do desempenho dos vendedores segundo o critério de ganho com comissões, cumprindo integralmente as exigências do exercício. Conforme podemos ver na imagem a seguir:
+
+![Evidência 10](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício10.png)
+
+
+11. A query retornou corretamente o cliente que mais gastou na loja, considerando apenas vendas concluídas. O valor final foi apresentado com precisão e no formato exigido, evidenciando o cliente de maior impacto financeiro para o negócio. Conforme podemos ver na imagem a seguir:
+
+![Evidência 11](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício11.png)
+
+
+12. A query retornou corretamente os dados dos dependentes do vendedor que teve o menor valor bruto em vendas concluídas. O uso de CTEs facilitou a estrutura e clareza da lógica, garantindo um resultado eficiente e bem filtrado. Conforme podemos ver na imagem a seguir:
+
+![Evidência 12](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício12.png)
+
+
+13. A query retornou corretamente os 10 produtos com menor volume de vendas nos canais especificados, atendendo ao filtro de status e organização dos dados conforme solicitado.. Conforme podemos ver na imagem a seguir:
+
+![Evidência 13](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício13.png)
+
+
+14. . Conforme podemos ver na imagem a seguir:
+
+![Evidência 14](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício14.png)
+
+
+15. . Conforme podemos ver na imagem a seguir:
+
+![Evidência 15](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício15.png)
+
+
+16. . Conforme podemos ver na imagem a seguir:
+
+![Evidência 16](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício16.png)
+
+
+---
+
+## 2.3 Exercício Extração de Dados
+
+
+
+
+
+
+
+
+
+
+
+---
 
 
 # Certificados
