@@ -3,7 +3,7 @@ CREATE TABLE tbl_clientes (
     id_cliente INTEGER PRIMARY KEY,
     nome_cliente VARCHAR(100) NOT NULL,
     cidade_cliente VARCHAR(100),
-    estado_cliente CHAR(2),
+    estado_cliente VARCHAR(50),
     pais_cliente VARCHAR(50)
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE tbl_carros (
 CREATE TABLE tbl_vendedores (
     id_vendedor INTEGER PRIMARY KEY,
     nome_vendedor VARCHAR(100),
-    sexo CHAR(1),
+    sexo SMALLINT,
     estado VARCHAR(50)
 );
 
