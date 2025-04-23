@@ -40,7 +40,11 @@ Esta sprint foi bastante interessante e enriquecedora, pois tive a oportunidade 
 
 # [Desafio](./Desafio/) 
 
-jkmkmkmk
+No desafio dessa sprint 1 foi pedido uma normalização da base de dados concessionária e mostrarmos os resultados inicialmente por meio da modelagem relacional. Após isso, utilizando essas tabelas normalizadas, seria necessário realizar uma modelagem dimensional. As evidências do desafio constam em duas pastas: [Desafio](./Desafio/) e  [Evidencias](./Evidencias/). Na qual a primeira concentra-se o arquivo do banco de dados, os diagramas e os arquivos sql, a segunda possui as evidências das imagens.
+
+Esse desafio foi bastante interessante, pude realmente me "desafiar" foi a primeira vez que tive um contato com essa estrutura e formato, foram dias de muito pensamento e "quebrando a cabeça", mas vi um crescimento incrível de conhecimentos adquiridos, minhas squad me ajudou bastante para chegar até essa solução final. Ansiosa para os próximos!
+
+[Readme Desafio](./Desafio/README.md)
 
 ---
 
@@ -133,19 +137,19 @@ Resolução: No SELECT, defini as colunas desejadas e calculei o total de vendas
 
 > 14. Apresente a query para listar o gasto médio por estado da federação. As colunas presentes no resultado devem ser estado e gastomedio. Considere apresentar a coluna gastomedio arredondada na segunda casa decimal e ordenado de forma decrescente. Observação: Apenas vendas com status concluído.
 
-Resolução:
+Resolução: No SELECT informei as colunas que deveriam me retornar os resultados: a do nome do estado e o de gastomedio, na qual realizei o cálculo do  valor bruto de cada venda (qtd * vrunt) e a média desse valor arredondando para 2 casas decimais. Por meio da TBVENDAS realizei o filtro  dos registros para considerar apenas as vendas que foram concluídas, agrupei os dados por estado, para saber o gasto médio por estado e ordenei  o resultado de forma decrescente para mostrar primeiro os estados com maior gasto médio.
 
 [Resposta Ex.14](./Exercícios/2.%20Exercicio%20Loja/exercício14.sql)
 
 > 15. Apresente a query para listar os códigos das vendas identificadas como deletadas. Apresente o resultado em ordem crescente.
 
-Resolução:
+Resolução: Utilizei a tabela TBVENDAS e filtrei as vendas com a coluna deletado igual a 1, que indica que foram deletadas. No SELECT retornei apenas o código da venda e ordenei o resultado de forma crescente.
 
 [Resposta Ex.15](./Exercícios/2.%20Exercicio%20Loja/exercício15.sql)
 
 > 16. Apresente a query para listar a quantidade média vendida de cada produto agrupado por estado da federação. As colunas presentes no resultado devem ser estado e nmprod e quantidade_media. Considere arredondar o valor da coluna quantidade_media na quarta casa decimal. Ordene os resultados pelo estado (1º) e nome do produto (2º). Obs: Somente vendas concluídas.
 
-Resolução:
+Resolução: Utilizei a tabela TBVENDAS e apliquei o filtro WHERE para considerar apenas vendas concluídas. No SELECT, retornei as colunas de estado, nome do produto e a média de quantidade vendida, arredondada para quatro casas decimais. Agrupei os dados por estado e produto, e ordenei o resultado primeiro pelo nome do estado e depois pelo nome do produto.
 
 [Resposta Ex.16](./Exercícios/2.%20Exercicio%20Loja/exercício16.sql)
 
@@ -154,13 +158,21 @@ Resolução:
 
 ## 2.3 Exercício Extração de Dados
 
-1. Exportar o resultado da query que obtém os 10 livros mais caros para um arquivo CSV. Utilizar o caractere ";" (ponto e vírgula) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nomes de cabeçalho que listamos abaixo: CodLivro Titulo CodAutor NomeAutor Valor CodEditora NomeEditora
+> 1. Exportar o resultado da query que obtém os 10 livros mais caros para um arquivo CSV. Utilizar o caractere ";" (ponto e vírgula) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nomes de cabeçalho que listamos abaixo: CodLivro Titulo CodAutor NomeAutor Valor CodEditora NomeEditora
 
-[Etapa 1 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa1.csv)
+Resolução: No SELECT, defini as colunas com alias para corresponder aos nomes exigidos no arquivo CSV. Utilizei dois LEFT JOIN, um para associar a tabela de autores e outro para a de editoras. A ordenação foi feita com base no valor do livro em ordem decrescente, retornando os 10 livros mais caros com o LIMIT 10.
 
-2. Exportar o resultado da query que obtém as 5 editoras com maior quantidade de livros na biblioteca para um arquivo CSV. Utilizar o caractere "|" (pipe) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nome de cabeçalho que listamos abaixo: CodEditora NometEditora QuantidadeLivros
+[Etapa 1 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa_1.csv)
 
-[Etapa 2 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa2.csv)
+[Etapa 1 - SQL](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa1.sql)
+
+> 2. Exportar o resultado da query que obtém as 5 editoras com maior quantidade de livros na biblioteca para um arquivo CSV. Utilizar o caractere "|" (pipe) como separador. Lembre-se que o conteúdo do seu arquivo deverá respeitar a sequência de colunas e seus respectivos nome de cabeçalho que listamos abaixo: CodEditora NometEditora QuantidadeLivros
+
+Resolução: Utilizei SELECT com alias para os nomes exigidos no CSV. Após isso, fiz um LEFT JOIN entre editora e livro e usei COUNT para contar os livros por editora, agrupei com GROUP BY, ordenei por quantidade de livros em ordem decrescente e limitei o resultado aos 5 primeiros com LIMIT 5.
+
+[Etapa 2 - CSV](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa_2.csv)
+
+[Etapa 2 - SQL](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/etapa2.sql)
 
 
 
@@ -238,17 +250,17 @@ Resolução:
 ![Evidência 13](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício13.png)
 
 
-14. . Conforme podemos ver na imagem a seguir:
+14. A query retorna corretamente os estados com seus respectivos gastos médios, em ordem decrescente, atendendo aos critérios estabelecidos no enunciado. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 14](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício14.png)
 
 
-15. . Conforme podemos ver na imagem a seguir:
+15. A query retorna corretamente os códigos das vendas deletadas, em ordem crescente. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 15](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício15.png)
 
 
-16. . Conforme podemos ver na imagem a seguir:
+16. A query retorna corretamente a quantidade média vendida por produto em cada estado, respeitando o ordenamento e o arredondamento exigido. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 16](./Exercícios/2.%20Exercicio%20Loja/Evidências/exercício16.png)
 
@@ -257,14 +269,13 @@ Resolução:
 
 ## 2.3 Exercício Extração de Dados
 
+Etapa 1. A query retornou corretamente os 10 livros com os maiores valores cadastrados na base, incluindo informações completas do autor e da editora. A estrutura está adequada para exportação em formato CSV com separador ; conforme solicitado.
 
+![Evidência - Etapa 1](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/Evidências/etapa1.png)
 
+Etapa 2. A query retornou corretamente as 5 editoras com o maior número de livros registrados na base, incluindo seus respectivos códigos, nomes e quantidade total de publicações. A estrutura do resultado está pronta para exportação em formato CSV com separador pipe, conforme especificado.
 
-
-
-
-
-
+![Evidência - Etapa 2](./Exercícios/3.%20Exercício%20Extração%20de%20Dados/Evidências/etapa2.png)
 
 
 ---
@@ -273,8 +284,7 @@ Resolução:
 # Certificados
 
 
-Certificado do Curso ABC
+Nessa sprint não houve certificados
 
-![Curso ABC](./Certificados/sample.png)
 
 
