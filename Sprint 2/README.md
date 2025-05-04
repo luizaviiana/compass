@@ -196,9 +196,7 @@ a = [1, 0, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 [Resposta Ex.15](./Exercícios/2.%20Exercicios%20Python%20Avançado%20I/Exercício15.py)
 
 <br>
-16. Crie uma classe chamada Pessoa, com um atributo privado chamado nome (declarado internamente na classe como __nome) e um atributo público de nome id.
-
-Adicione dois métodos à classe, sendo um para definir o valor de __nome e outro para retornar o valor do respectivo atributo.
+16. Crie uma classe chamada Pessoa, com um atributo privado chamado nome (declarado internamente na classe como __nome) e um atributo público de nome id. Adicione dois métodos à classe, sendo um para definir o valor de __nome e outro para retornar o valor do respectivo atributo.
 
 > Resolução: Comecei a questão criando a classe Pessoa com um construtor que recebe o id como parâmetro. Dentro do construtor, declarei o atributo público id e o atributo privado __nome, inicializado como None. Para garantir o acesso controlado ao atributo privado, utilizei o property. Após isso, criei um método nome decorado com @property, responsável por retornar o valor de __nome, e um método nome decorado com @nome.setter, que define o valor de __nome. Assim, o acesso ao atributo acontece apenas por meio dos métodos definidos, respeitando o encapsulamento. Por fim, instanciei um objeto da classe e testei a atribuição e leitura do nome.
 
@@ -238,13 +236,16 @@ Ao final, itere pela lista imprimindo cada um dos objetos no formato do modelo f
 [Resposta Ex.19](./Exercícios/2.%20Exercicios%20Python%20Avançado%20I/Exercício19.py)
 
 <br>
+
 ---
 
 ## 2.3 Exercícios Python Avançado II
 
-20. 
+20.Você está recebendo um arquivo contendo 10.000 números inteiros, um em cada linha. Utilizando lambdas e high order functions, apresente os 5 maiores valores pares e a soma destes. Você deverá aplicar as seguintes funções no exercício: map, filter, sorted e sum. 
 
-> Resolução: 
+Seu código deverá exibir na saída a lista dos 5 maiores números pares em ordem decrescente e a soma destes valores.
+
+>Abri o arquivo number.txt, li as linhas e fiz a conversão delas em inteiro com a função map. Em seguida, filtrei apenas os números pares por meio da função filter() com uma lambda que retorna true se o número for divisível por 2. Depois, selecionei os cinco maiores usando sorted() em ordem decrescente e fatiamento. Por fim, utilizei print para exibir a lista dos maiores pares e a soma deles usanddo sum().
 
 [Resposta Ex.20](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício20.py)
 
@@ -256,41 +257,56 @@ Ao final, itere pela lista imprimindo cada um dos objetos no formato do modelo f
 [Resposta Ex.21](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício21.py)
 
 <br>
-22. 
+22. A função calcula_saldo recebe uma lista de tuplas, correspondendo a um conjunto de lançamentos bancários. Cada lançamento é composto pelo seu valor (sempre positivo) e pelo seu tipo (C - crédito ou D - débito). 
 
-> Resolução: 
+A partir dos lançamentos, a função deve calcular o valor final, somando créditos e subtraindo débitos. Na lista anterior, por exemplo, teríamos como resultado final 200.
+
+Além de utilizar lambdas, você deverá aplicar, obrigatoriamente, as seguintes funções na resolução: reduce (módulo functools) e map.
+
+> Resolução: Importei a função reduce do módulo functools para fazer o cálculo dos valores. Em seguida, usei a função map junto com uma lambda para transformar cada lançamento da lista, se o tipo for crédito, o valor vai permanecer positivo, se for débito, o valor é multiplicado por -1, fazendo com que os débitos sejam subtraídos. Após isso, usei reduce para somar todos os valores da lista resultante e retornar o saldo bancário final.
 
 [Resposta Ex.22](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício22.py)
 
 <br>
-23. 
+23. A função calcular_valor_maximo deve receber dois parâmetros, chamados de operadores e operandos. Em operadores, espera-se uma lista de caracteres que representam as operações matemáticas suportadas (+, -, /, *, %), as quais devem ser aplicadas à lista de operadores nas respectivas posições. Após aplicar cada operação ao respectivo par de operandos, a função deverá retornar o maior valor dentre eles.
 
-> Resolução: 
+Na resolução da atividade você deverá aplicar as seguintes funções: max, zip e map
+
+> Resolução: Utilizei a função zip() para combinar os operadores e os operandos. Em seguida, apliquei a função map() junto com uma lambda para executar cada operação sobre os operandos, conforme o operador correspondente. Após isso, utilizei a função max() para retornar o maior valor encontrado entre os resultados. 
 
 [Resposta Ex.23](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício23.py)
 
 <br>
-24. 
+24. Um determinado sistema escolar exporta a grade de notas dos estudantes em formato CSV. Cada linha do arquivo corresponde ao nome do estudante, acompanhado de 5 notas de avaliação, no intervalo [0-10]. É o arquivo estudantes.csv de seu exercício.
 
-> Resolução: 
+Precisamos processar seu conteúdo, de modo a gerar como saída um relatório em formato textual contendo as informações solicitadas.
+
+O resultado do processamento deve ser escrito na saída padrão (print), ordenado pelo nome do estudante e obedecendo ao formato descrito.
+
+> Resolução: Primeiramente abri o arquivo em modo leitura e com UTF-8 para garantir a leitura correta dos nomese carreguei as linhas com readlines(). Limpei os dados usando map() com strip() e separei o nome e as notas com split(','). Converti as notas para inteiros e organizei os dados como tuplas, também ordenei os estudantes pelo nome com sorted(). Em seguida, para cada aluno, selecionei as três maiores notas com sorted() e calculei a média com sum() e round(). Para finalizar, imprimi os resultados no formato pedido.
 
 [Resposta Ex.24](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício24.py)
 
 <br>
-25. 
+25. Você foi encarregado de desenvolver uma nova feature  para um sistema de gestão de supermercados. Para realizar um cálculo de custo, o sistema deverá permitir filtrar um determinado conjunto de produtos, de modo que apenas aqueles cujo valor unitário for superior à média deverão estar presentes no resultado.
 
-> Resolução: 
+O retorno da função obrigatoriamente deve ser uma lista. Cada elemento da lista é uma tupla em que a primeira posição contém o nome do produto e a segunda, o respectivo preço. 
+
+> Resolução: Primeiramente calculei a média dos preços usando sum() e len() e utilizei filter() com uma função lambda para obter os produtos com preço acima dessa média. Depois apliquei sorted() para ordenar os produtos filtrados com base em seus preços, do menor para o maior. Por fim, pedi para retornar o resultado.
 
 [Resposta Ex.25](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício25.py)
 
 <br>
-26. 
+26. Generators são poderosos recursos da linguagem Python. Neste exercício, você deverá criar o corpo de uma função, cuja assinatura já consta em seu arquivo de início (def pares_ate(n:int):) .
 
-> Resolução: 
+O objetivo da função pares_ate é retornar um generator para os valores pares no intervalo [2,n]. Observe que n representa o valor do parâmetro informado na chamada da função.
+
+> Resolução: Comecei o código usando a função range() para gerar números de 2 até n, com passo 2, apliquei yield para transformar a função em um generator e por meio do for será percorrido apenas os valores desejados.
 
 [Resposta Ex.26](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Exercício26.py)
 
 <br>
+
 ## 2.4 Exercícios Python ETL
 
 > 
@@ -393,31 +409,31 @@ Resolução:
 
 ## 3.3 Exercícios Python Avançado II
 
-20. . Conforme podemos ver na imagem a seguir:
+20. Abri o arquivo number.txt, utilizei as funções solicitadas para realizar os cálculos (map, filter, sorted e sum) e o código exibiu na saída a lista dos 5 maiores números pares em ordem decrescente e a soma destes valores. Conforme podemos ver na imagem a seguir:
 
-![Evidência 1](./)
+![Evidência 20](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício20.png)
 
 21. Fiz a função conta_vogais, na qual o parâmetro de entrada é uma string e o resultado será contagem de vogais presentes em seu conteúdo, também apliquei as funções len(), filter() e lambda para resolução da questão. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 21](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício21.png)
 
-22. . Conforme podemos ver na imagem a seguir:
+22. Fiz a função calcula_saldo recebe uma lista de tuplas, correspondendo a um conjunto de lançamentos bancários, na qual calcula o valor final, somando créditos e subtraindo débitos, utilizando no código as funções lambda, reduce e map. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 22](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício22.png)
 
-23. . Conforme podemos ver na imagem a seguir:
+23. Criei a função calcular_valor_maximo na qual recebe dois parâmetros, operadores e operandos, onde aplica cada operação ao respectivo par de operandos e retornar o maior valor dentre eles. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 23](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício23.png)
 
-24. . Conforme podemos ver na imagem a seguir:
+24. Fiz a importação do arquivo, a leitura do mesmo, a limpeza dos dados e gerei como saída um relatório em formato textual contendo as informações solicitadas. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 24](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício24.png)
 
-25. . Conforme podemos ver na imagem a seguir:
+25. Fiz o cálculo da média dos preços, filtrei os produtos com o valor acima da média e ordenei os produtos filtrados pelo preço (ordem crescente). Conforme podemos ver na imagem a seguir:
 
 ![Evidência 25](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício25.png)
 
-26. . Conforme podemos ver na imagem a seguir:
+26. Foi feita a função pares_ate que retorna um generator para os valores pares no intervalo [2,n]. Conforme podemos ver na imagem a seguir:
 
 ![Evidência 26](./Exercícios/3.%20Exercicios%20Python%20Avançado%20II/Evidências/Exercício26.png)
 

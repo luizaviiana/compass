@@ -1,10 +1,9 @@
 def valores(*args, **kwargs):
     """
-    Essa função imprime o valor de cada parâmetro recebido, nomeados ou não.
-
+    Imprime o valor de cada parâmetro recebido, nomeados ou não
     Parâmetros:
-        *args: Argumentos não nomeados.
-        **kwargs: Argumentos nomeados.
+        *args: Argumentos não nomeados
+        **kwargs: Argumentos nomeados
     """
     for valor in args:
         print(valor)

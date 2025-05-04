@@ -1,12 +1,12 @@
 class Lampada:
     """
-    Representa o comportamento da lâmpada  (ligada ou desligada).
+    Representa o comportamento da lâmpada  (ligada ou desligada)
     """
     def __init__(self, ligada: bool):
         """
-        Inicializa a lâmpada com o estado informado.
+        Inicializa a lâmpada com o estado informado
         Parâmetros:
-            ligada (bool): True para lâmpada ligada e False para desligada.
+            ligada (bool): True para lâmpada ligada e False para desligada
         """
         self.ligada = ligada
 
@@ -16,12 +16,7 @@ class Lampada:
     def desliga(self):  # Desliga a lâmpada
         self.ligada = False
 
-    def esta_ligada(self):
-        """
-        Faz a verificação se está ligada.
-        Retorna:
-            bool: True se ligada, False se desligada.
-        """
+    def esta_ligada(self):  # verificação se está ligada
         return self.ligada
 
 

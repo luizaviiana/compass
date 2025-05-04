@@ -1,11 +1,12 @@
 def dividir_lista(lista):
     """
-    Função que divide uma lista recebida em três partes iguais.
+    Função que recebe como parâmetro uma lista e retorna 3 listas:
+    a lista recebida dividida em 3 partes iguais
     Parâmetro:
         lista (list): Lista fornecida que será dividida em três partes iguais
         (deve ser divisível por três)
     Retorna:
-        tuple: Três listas provenientes da original, porém em partes.
+        tuple: Três listas provenientes da original, porém em partes
     """
     tamanho_lista = len(lista)
     parte = tamanho_lista // 3

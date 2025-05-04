@@ -1,12 +1,10 @@
 def soma_numeros(numeros_str):
     """
-    Função que irá receber uma string de números separados por vírgulas
-    e retorna a soma de todos eles.
-
-    Parâmetros:
+     função que recebe uma string de números separados por vírgula
+     e retorna a soma de todos eles
+     Parâmetros:
         numeros_str (str): "1,3,4,6,10,76,..."
-
-    Retorna:
+     Retorna:
         int: A soma dos valores inteiros
     """
     lista_numeros = numeros_str.split(',')

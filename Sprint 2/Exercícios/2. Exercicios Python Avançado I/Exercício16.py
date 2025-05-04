@@ -6,14 +6,14 @@ class Pessoa:
     @property
     def nome(self):
         """
-        Retorna o valor do atributo privado __nome.
+        Retorna o valor do atributo privado __nome
         """
         return self.__nome
 
     @nome.setter
     def nome(self, valor):
         """
-        Define o valor do atributo privado __nome.
+        Define o valor do atributo privado __nome
         """
         self.__nome = valor
 

@@ -1,9 +1,6 @@
 class Passaro:
-    """
-    Superclasse contendo as habilidades de voar e emitir som.
-    """
     def voar(self):
-        """Imprime que o pássaro está voando."""
+        """Imprime que o pássaro está voando"""
         print("Voando...")
 
     def emitir_som(self):
@@ -15,25 +12,25 @@ class Passaro:
 
 class Pato(Passaro):
     """
-    Classe que representa um Pato, herda de Passaro.
+    Classe que representa um pato, herda de pássaro
     """
     def emitir_som(self):
-        """Imprime o som do pato."""
+        """Imprime o som do pato"""
         print("Pato emitindo som...")
         print("Quack Quack")
 
 
 class Pardal(Passaro):
     """
-    Classe que representa um Pardal, herda de Passaro.
+    Classe que representa um pardal, herda de pássaro
     """
     def emitir_som(self):
-        """Imprime o som do pardal."""
+        """Imprime o som do pardal"""
         print("Pardal emitindo som...")
         print("Piu Piu")
 
 
-"""Testando as classes"""
+# Testando as classes
 print("Pato")
 pato = Pato()
 pato.voar()

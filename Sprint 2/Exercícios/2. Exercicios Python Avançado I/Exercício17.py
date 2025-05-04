@@ -1,14 +1,14 @@
 class Calculo:
     def somando(self, x, y):
-        """Recebe dois parâmetros, X e Y, e retorna a soma dos dois."""
+        """Recebe dois parâmetros, X e Y, e retorna a soma dos dois"""
         return x + y
 
     def subtraindo(self, x, y):
-        """Recebe dois parâmetros, X e Y, e retorna a subtração dos dois."""
+        """Recebe dois parâmetros, X e Y, e retorna a subtração dos dois"""
         return x - y
 
 
-"""Testando a clase"""
+# Testando a clase
 x = 4
 y = 5
 
