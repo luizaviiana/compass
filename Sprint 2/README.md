@@ -307,6 +307,7 @@ O objetivo da função pares_ate é retornar um generator para os valores pares 
 
 <br>
 
+---
 ## 2.4 Exercícios Python ETL
 
 > 
@@ -315,6 +316,7 @@ Resolução:
 
 [Resposta Ex.](./)
 
+<br>
 
 --- 
 
