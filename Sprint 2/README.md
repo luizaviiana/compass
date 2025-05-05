@@ -2,21 +2,25 @@
 
 ## 📌 Resumo
 
-Durante a Sprint 2, pude aprofundar um pouco mais sobre a linguagem de progragamação Python por meio de cursos, exercícios e desafios. Apesar de já ter estudado alguns conceitos anteriormente, por meio dessa sprint consolidei ainda mais os meus conhecimentos de uma forma dinâmica, prática e colaborativa, uma vez que constantemente estava discutindo sobre os exercicios e dificuldades com os meus colegas da squad. A seguir estarei detalhando um pouco mais sobre os principais conteúdos abordados:
+Durante a Sprint 2, pude aprofundar um pouco mais sobre a linguagem de progragamação Python por meio de cursos, exercícios e desafios. Apesar de já ter estudado alguns conceitos anteriormente, por meio dessa sprint consolidei ainda mais os meus conhecimentos de uma forma dinâmica, prática e colaborativa, uma vez que constantemente estava discutindo sobre os exercícios e dificuldades com os meus colegas da squad. A seguir estarei detalhando um pouco mais sobre os principais conteúdos abordados:
 
-- **Data & Analytics - Conceitos de Python**: 
+- **Data & Analytics - Conceitos de Python**: Por meio dos slides disponiblizados inicialmente e através dos exercícios da Udemy, consegui aprofundar e exercitar o aprendizado do Python. 
 
-- **Python 3 - Curso Completo do Básico ao Avançado**: 
+- **Python 3 - Curso Completo do Básico ao Avançado**: Passei boa parte do tempo dessa Sprint assistindo os vídeos desse curso, por mais que sejam longos eu aprendi diversos conceitos que até então não tinha conhecimento, além de me auxiliar na configuração do ambiente para trabalhar com o Python.
 
-- **Curso Ciência de Dados para Iniciantes**: 
+- **Curso Ciência de Dados para Iniciantes**: Essa foi a minha primeira vez trabalhando com as bibliotecas Pandas e Matplotlib, esse curso foi essencial para o meu desenvolvimento nessa Sprint, uma vez que me mostrou como acessar a documentação bem como fazer gráficos e trabalhar com essas bibliotecas.
 
-- **Estatística Descritiva com Python**: 
+- **Estatística Descritiva com Python**: Por meio desse curso vi como utilizamos alguns conceitos estatísticos no dia a dia para resolução de problemas usando a linguagem Python, foi bem interessante acompanhar essas aplicações.
 
-- **Curso de Lógica de Programação**: 
+- **Curso de Lógica de Programação**: Apesar de já ter visto outras playlists do canal do Gustavo Guanabara essa foi a primeira vez que vi o curso de lógica de programação dele, foi bastante interessante pois pude consolidar ainda mais os meus conhecimentos.
+
 
 🤔 *Reflexões*
 
+Essa Sprint2 foi bastante corrida mas consegui ajustar meu tempo melhor em comparação à primeira. Gostei bastante dos cursos, uma vez que meu conhecimento em Python era básico e por meio dos estudos e exercícios consegui ter uma evolução enorme. Além disso, estou muito feliz por todo apoio que venho recebendo dos monitores, da Scrum Master, do time da minha Squad e dos demais membros da PB.
 
+
+<br>
 
 ---
 
@@ -37,20 +41,24 @@ Durante a Sprint 2, pude aprofundar um pouco mais sobre a linguagem de progragam
 
 4. [Certificados](#certificados)
 
+<br>
+
 ---
 
 # [Desafio](./Desafio/) 
 
-No desafio dessa sprint 2 foi pedido...
+Nesse desafio dessa sprint 2 tivemos como objetivo a prática da linguagem Python com a combinação dos nossos conhecimentos adquiridos no PB. Para realizá-lo, tive que me aprofundar nos cursos da Udemy, além de exercitar bastante.
 
-O arquivo desenvolvido e utilizado para realização do desafio está disponível na pasta *Desafio*, as evidências do desafio encontram-se na pasta *Evidências* e a sua documentação é apresentada no seu README.md. Segue os links:
+O arquivo Jupyter desenvolvido e utilizado para realização do desafio está disponível na pasta *Desafio*, as evidências do desafio encontram-se na pasta *Evidências*. Para acessar a documentação completa do desafio recomendo clicar no link *Readme Desafio*, onde está bastante detalhado. Segue os links:
 
-- [Desafio](./Desafio/) 
-- [Evidências](./Evidências/)
+- [Pasta Desafio](./Desafio/) 
+- [Pasta Evidências](./Evidências/)
+- [Arquivo Jupyter](./Desafio/etl_googleplaystore.ipynb) 
 - [Readme Desafio](./Desafio/README.md)
 
-Esse desafio foi bastante interessante, pude .....
+Esse desafio foi bastante interessante, pude aprofundar bastante os meus conhecimentos, uma vez que antes ainda eram iniciais, foi corrido mas muito gratificante. Consegui explorar minha criatividade na construção dos gráficos e na resolução das questões. Além disso, o monitor, a Scrum Master e minha Squad me auxiliaram bastante em momentos de dúvidas.
 
+<br>
 
 ---
 
@@ -308,19 +316,46 @@ O objetivo da função pares_ate é retornar um generator para os valores pares 
 <br>
 
 ---
-## 2.4 Exercícios Python ETL
+## 2.4 Exercícios Python ETL 
 
-> 
+Nesse exercício apliquei alguns fundamentos de ETL utilizando como recurso a linguagem de python (pura), a entrada é o arquivo actors.csv. Utilizei o Jupyter para realizar as 5 etapas e as respostas obtidas em cada uma delas foram armazenadas nos respectivos arquivos de texto. Seguem os arquivos do CSV utilizado para resolução e do Jupyter no qual realizei cada uma das etapas:
 
-Resolução: 
+[Arquivo actors.csv](./Exercícios/4.%20Exercicios%20Python%20ETL/actors.csv)
 
-[Resposta Ex.](./)
+[Arquivo Jupyter](./Exercícios/4.%20Exercicios%20Python%20ETL/actors.ipynb)
+
+Inicialmente comecei criando a função separar_campos_csv()  para realizar o parse manual das linhas do arquivo actors.csv, tratando corretamente campos entre aspas e vírgulas. Depois, abri o arquivo em modo leitura com codificação utf-8 utilizando with open(), assim, li todas as linhas com readlines() e armazenei na variável linhas_cruas. A primeira linha, a do cabeçalho, foi processada com a função para extrair os nomes das colunas e as outras foram percorridas com list comprehension, gerando a lista registros com os dados separados por campos. Após isso, comecei as etapas do exercício.
+
+
+*Etapa 1 - Apresente o ator/atriz com maior número de filmes e a respectiva quantidade:* Para resolução dessa etapa fiz duas variáveis, para armazenar o ator/atriz com mais filmes e a maior quantidade encontrada. Em seguida, percorri a lista registros e, a cada iteração pega o nome da pessoa e a quantidade de filmes (convertida para inteiro), fiz a comparação desse valor com o atual máximo registrado e, se fosse maior, atualizava as variáveis. Finalizei montando uma string formatada com o resultado e salvei a mensagem no arquivo etapa-1.txt.
+
+[Etapa-1.txt](./Exercícios/4.%20Exercicios%20Python%20ETL/etapa-1.txt)
+
+
+*Etapa 2 - Apresente a média de receita de bilheteria bruta dos principais filmes, considerando todos os atores:* Para resolução dessa etapa percorri a lista registros para somar os valores da coluna gross, usei replace() para remover os símbolos de dólar e vírgulas, e converti o valor para float. Para cada iteração acumulei o total em soma_gross e aumentei o contador. Após o loop, calculei a média dividindo a soma pelo número total de registros, no final formatei a média com duas casas decimais e salvei o resultado no arquivo etapa-2.txt.
+
+[Etapa-2.txt](./Exercícios/4.%20Exercicios%20Python%20ETL/etapa-2.txt)
+
+
+*Etapa 3 - Apresente o ator/atriz com a maior média de receita de bilheteria bruta por filme do conjunto de dados:* Nessa etapa 3, percorri a lista registros para identificar o ator/atriz com a maior média de bilheteria por filme, utilizando a coluna Average per Movie, assim, removi os símbolos de dólar e vírgulas com replace() e converti o valor para float. A cada iteração, comparei o valor com a maior média registrada até o momento e, se fosse maior, atualizava as variáveis correspondentes a pessoa e à média, finalizei imprimindo a mensagem formatada com duas casas decimais e salvando o resultado no arquivo etapa-3.txt.
+
+[Etapa-3.txt](./Exercícios/4.%20Exercicios%20Python%20ETL/etapa-3.txt)
+
+
+*Etapa 4 - A coluna #1 Movie contém o filme de maior bilheteria em que o ator atuou. Realize a contagem de aparições destes filmes no dataset, listando-os ordenados pela quantidade de vezes em que estão presentes. Considere a ordem decrescente e, em segundo nível, o nome do filme:* Para resolver essa etapa utilizei defaultdict para contar quantas vezes cada filme aparece na coluna #1 Movie, e para cada linha da lista registros, acessei o valor da coluna e incrementei o contador correspondente.  Após isso, ordenei os filmes usando a função sorted(), com uma função lambda que inicialmente ordena pela quantidade de aparições de forma decrescente e, em caso de empate, ordena pelo nome dos filmes, finalizei imprimindo no arquivo etapa-4.txt cada resultado no formato solicitado.
+
+[Etapa-4.txt](./Exercícios/4.%20Exercicios%20Python%20ETL/etapa-4.txt)
+
+
+*Etapa 5 - Apresente a lista dos atores ordenada pela receita bruta de bilheteria de seus filmes (coluna Total Gross), em ordem decrescente:* Para resolução dessa etapa, criei uma lista (lista_atores) para armazenar tuplas com o nome do ator e o valor da receita total de bilheteria. Assim, percorri os registros extraindo o nome e a receita total, removendo os símbolos de dólar e vírgulas com replace(), e converti o valor para float. Em seguida, ordenei a lista com sorted(), usando lambda que organiza os atores em ordem decrescente de receita. Por fim, imprimi no arquivo etapa-5.txt cada resultado no formato solicitado.
+
+[Etapa-5.txt](./Exercícios/4.%20Exercicios%20Python%20ETL/etapa-5.txt)
 
 <br>
 
 --- 
 
-# [Evidências](./Evidencias/)
+# Evidências
 
 ## 3.1 Exercícios Python Básico
 
@@ -444,9 +479,28 @@ Resolução:
 ---
 ## 3.4 Exercícios Python ETL
 
-1. . Conforme podemos ver na imagem a seguir:
+Etapa 1. Foi feito um código no qual retorna o ator/atriz com maior número de filmes e a respectiva quantidade, além de salvar essa mensagem de texto no arquivo etapa-1.txt. Conforme podemos ver na imagem a seguir:
 
-![Evidência 1](./)
+![Evidência 1](./Exercícios/4.%20Exercicios%20Python%20ETL/Evidências/Evidência1.png)
+
+Etapa 2. Foi feito um código no qual apresenta a média de receita de bilheteria bruta dos principais filmes e salva o resultado no arquivo etapa-2.txt. Conforme podemos ver na imagem a seguir:
+
+![Evidência 2](./Exercícios/4.%20Exercicios%20Python%20ETL/Evidências/Evidência2.png)
+
+Etapa 3. Foi feito um código em que mostra  o ator/atriz com a maior média de receita de bilheteria bruta por filme e seu o resultado é salvo no arquivo etapa-3.txt. Conforme podemos ver na imagem a seguir:
+
+![Evidência 3](./Exercícios/4.%20Exercicios%20Python%20ETL/Evidências/Evidência3.png)
+
+Etapa 4. Foi feito um código em que mostra a contagem de aparições dos filmes da coluna #1 no dataset, listando-os ordenados pela quantidade de vezes em que estão presentes, considerando a ordem decrescente e, em segundo nível, o nome do filme, seu o resultado é salvo no arquivo etapa-4.txt. Conforme podemos ver na imagem a seguir:
+
+![Evidência 4](./Exercícios/4.%20Exercicios%20Python%20ETL/Evidências/Evidência4.png)
+
+Etapa 5. Foi feito um código que apresenta a lista dos atores ordenada pela receita bruta de bilheteria de seus filmes em ordem decrescente e o seu resultado salvo no arquivo etapa-5.txt. Conforme podemos ver na imagem a seguir:
+
+![Evidência 5](./Exercícios/4.%20Exercicios%20Python%20ETL/Evidências/Evidência5.png)
+
+
+<br>
 
 
 ---
@@ -455,7 +509,7 @@ Resolução:
 # Certificados
 
 
-Nessa sprint não houve certificados
+Nessa sprint não houve certificados.
 
 
 
