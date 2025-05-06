@@ -18,7 +18,7 @@ Antes de começar de fato as etapas do desafio, fiz a preparação do ambiente, 
 
 > ###  Análise inicial: 
 
-Inicialmente importei as bibliotecas Pandas, que será usada para carregar, manipular e tratar os dados, e Matplotlib, que será usada para criar gráficos. Para ler o arquivo e armazená-lo no DataFrame (df), utilizei a biblioteca Pandas e fiz a análise inicial dos dados.
+Inicialmente importei as bibliotecas Pandas, que será usada para carregar, manipular e tratar os dados, e Matplotlib, que será usada para criar gráficos. Para ler o arquivo e armazená-lo no DataFrame (df) utilizei a biblioteca Pandas e fiz a análise inicial dos dados.
 
 Para analisar os dados do CSV comecei com df.head() para visualizar as primeiras linhas e entender um pouco mais sobre as colunas e como os dados estão organizados, por meio do df.shape vi suas dimensões, com df.info() pude ver outras informações da base, usei df.nunique() para verificar os valores únicos existentes em cada coluna e com df.isnull().sum() visualizei quantidade dos valores vazios das colunas.
 
@@ -39,7 +39,7 @@ Após a análise inicial dos dados e compreendendo um pouco mais sobre a nossa b
 
 > ###  Etapa 2: 
 
-Nessa etapa, é pedido um gráfico de barras contendo os top 5 apps por número de instalações. No entanto, na primeira tentativa de rodar o código foi observado que na coluna Installs existia uma linha que continha valor não numérico, com a palavra "Free" que provavelmente ocorreu por erro no preenchimento. Assim, seria necessário conversar com o time de negócio para verificar a importância dessa linha na análise final ou se pode ser excluída. Para fins do exercício eu estarei filtrando apenas as os valores válidos na coluna, utilizei a função str.contains() e passei o padrão dos valores, também usei o argumento na=False para ignorar valores nulos. Em seguida, por meio do str.replace() removi os sinais de vírgula e +, o que permitiu a conversão para inteiro, assim, é possível fazer a ordenação posteriormente.
+Nessa etapa, é pedido um gráfico de barras contendo os top 5 apps por número de instalações. No entanto, na primeira tentativa de rodar o código foi observado que na coluna Installs existia uma linha que continha valor não numérico, com a palavra "Free" que provavelmente ocorreu por erro no preenchimento. Assim, seria necessário conversar com o time de negócio para verificar a importância dessa linha na análise final ou se pode ser excluída. Para fins do exercício eu estarei filtrando apenas os valores válidos na coluna, utilizei a função str.contains() e passei o padrão dos valores, também usei o argumento na=False para ignorar valores nulos. Em seguida, por meio do str.replace() removi os sinais de vírgula e +, o que permitiu a conversão para inteiro, assim, é possível fazer a ordenação posteriormente.
 
 Para elaboração do gráfico primeiramente fiz a ordenação do top 5 intalações, onde usei a função sort_values() com o parâmetro ascending=False para ficar de forma decrescente e head(5) para selecionar o top 5. Quanto ao gráfico, defini uma paleta de cores com  códigos hexadecimais, criei uma figura com tamanho ajustado, por meio da função plt.bar() gerei o gráfico de barras verticais, incluí o título do gráfico com plt.title(), fiz a definição dos rótulos dos eixos x e y e, para melhorar a visualização dos nomes dos apps, girei o rótulo em 30°. Finalizei ajustando automaticamente o layout e pedindo para exibir.
 
@@ -70,7 +70,7 @@ Para visualização do gráfico defini uma paleta azul associando uma cor para c
 
 > ###  Etapa 4: 
 
-Nessa etapa é solicitado mostrar o app mais caro existente no DataFrame. Para resolução dessa questão será utilizada a coluna Price, observando o formato dos valores dessa coluna vi que possuíam o $, assim, impediria que a coluna fosse tratada como numérica. Dessa forma, usei str.replace() para remover o símbolo e transformei os valores em números. Depois, usei uma filtragem condicional para localizar o app com o maior valor no DataFrame, finalizei com a exibição das colunas App e Price.
+Nessa etapa é solicitado mostrar o app mais caro existente no DataFrame. Para resolução dessa questão será utilizada a coluna Price, observando o formato dos valores dessa coluna vi que possuíam o $. Dessa forma, usei str.replace() para remover o símbolo e transformei os valores em números. Depois, usei uma filtragem condicional para localizar o app com o maior valor no DataFrame, finalizei com a exibição das colunas App e Price.
 
 ![Evidência 6](../Evidências/Evidência6.png)
 
