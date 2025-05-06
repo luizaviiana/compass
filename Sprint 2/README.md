@@ -47,9 +47,9 @@ Essa Sprint2 foi bastante corrida mas consegui ajustar meu tempo melhor em compa
 
 # [Desafio](./Desafio/) 
 
-Nesse desafio dessa sprint 2 tivemos como objetivo a prática da linguagem Python com a combinação dos nossos conhecimentos adquiridos no PB. Para realizá-lo, tive que me aprofundar nos cursos da Udemy, além de exercitar bastante.
+Nesse desafio dessa Sprint 2 tivemos como objetivo a prática da linguagem Python com a combinação dos nossos conhecimentos adquiridos no PB. Para realizá-lo, tive que me aprofundar nos cursos da Udemy, além de exercitar bastante.
 
-O arquivo Jupyter desenvolvido e utilizado para realização do desafio está disponível na pasta *Desafio*, as evidências do desafio encontram-se na pasta *Evidências*. Para acessar a documentação completa do desafio recomendo clicar no link *Readme Desafio*, onde está bastante detalhado. Segue os links:
+O *Arquivo Jupyter* utilizado para realização do desafio está disponível na *Pasta Desafio*, as evidências do desafio encontram-se na *Pasta Evidências*. Para acessar a documentação completa do desafio recomendo clicar no link *Readme Desafio*, onde está bastante detalhado. Segue os links:
 
 - [Pasta Desafio](./Desafio/) 
 - [Pasta Evidências](./Evidências/)
