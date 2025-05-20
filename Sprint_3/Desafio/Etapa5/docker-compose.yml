@@ -1,0 +1,16 @@
+services:
+  etl:
+    build:
+      context: ../Etapa3
+      dockerfile: Dockerfile
+    volumes:
+      - ./volume:/app/volume
+
+  job:
+    build:
+      context: ../Etapa4
+      dockerfile: Dockerfile
+    volumes:
+      - ./volume:/app/volume
+    depends_on:
+      - etl
