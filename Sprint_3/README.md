@@ -158,5 +158,5 @@ Durante essa sprint, concluí os cursos AWS Partner: Accreditation (Technical) (
 
 | Certificado | Link |
 |--------|------|
-|AWS Partner: Accreditation | [🔗 Accreditation](./Certificados/Certificado%20AWS%20Partner%20Accreditation%20(Technical)%20(Português).pdf) |
-|AWS Technical Essentials | [🔗 Essentials](./Certificados/Certificado%20AWS%20Technical%20Essentials.pdf) |
+|AWS Partner: Accreditation | [🔗 Accreditation](./Certificados/Certificado%20AWS%20Partner%20Accreditation%20(Technical)%20(Português).png) |
+|AWS Technical Essentials | [🔗 Essentials](./Certificados/Certificado%20AWS%20Technical%20Essentials.png) |
