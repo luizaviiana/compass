@@ -147,17 +147,15 @@ Em seguida, criei uma tabela externa no banco de dados, definindo os campos conf
 
 ![Evidência 2](./Exercícios/Exercício2/Evidências/Evidencia2.png)
 
-Antes de executar as consultas, precisei criar a tabela nomes dentro do banco de dados meubanco, usando uma instrução CREATE EXTERNAL TABLE. O objetivo foi permitir que o Athena consultasse diretamente os dados armazenados em um arquivo CSV no S3, sem a necessidade de importação para um banco tradicional.
+Antes de executar as consultas, precisei criar a tabela nomes dentro do banco de dados meubanco, usando uma instrução CREATE EXTERNAL TABLE. O objetivo foi permitir que o Athena consultasse diretamente os dados armazenados do um arquivo csv no S3, sem a necessidade de importação para um banco tradicional. Defini os campos da tabela conforme a estrutura do arquivo nomes.csv: nome e sexo como STRING, e total e ano como INT, respeitando os tipos identificados previamente no vscode.
 
-Defini os campos da tabela conforme a estrutura do arquivo nomes.csv: nome e sexo como STRING, e total e ano como INT, respeitando os tipos identificados previamente no VS Code.
-
-Utilizei o formato SERDE do tipo LazySimpleSerDe, que é adequado para arquivos CSV e permite valores nulos. Especifiquei nas propriedades que o delimitador de campos é uma vírgula (',') e adicionei a instrução TBLPROPERTIES ('skip.header.line.count' = '1') para que a primeira linha (cabeçalho) do CSV fosse ignorada.
+Utilizei o formato SERDE do tipo LazySimpleSerDe, que é adequado para arquivos CSV e permite valores nulos. Especifiquei nas propriedades que o delimitador de campos é uma vírgula  e adicionei a instrução TBLPROPERTIES  para que a primeira linha do CSV fosse ignorada.
 
 ![Evidência 3](./Exercícios/Exercício2/Evidências/Evidencia3.png)
 
 Apontei o LOCATION para 's3://ana-luiza-static-site/dados/', que é a pasta onde o arquivo nomes.csv está armazenado. Isso permite ao Athena mapear corretamente os dados no S3 para a tabela criada.
 
-Por fim, elaborei uma consulta SQL que lista os 3 nomes mais usados em cada década a partir de 1950, utilizando funções de agregação e a cláusula ROW_NUMBER() para ordenar e filtrar os nomes mais populares por década. Essa consulta foi estruturada em uma CTE para garantir a correta aplicação dos filtros e ordenações. 
+Por fim, elaborei uma consulta SQL que lista os 3 nomes mais usados em cada década a partir de 1950, utilizando funções de agregação para ordenar e filtrar os nomes mais populares por década. Essa consulta foi estruturada em uma CTE para garantir a correta aplicação dos filtros e ordenações. 
 
 Primeiro código: 
 
@@ -173,9 +171,7 @@ Segundo código:
 
 Em seguida, desenvolvi uma consulta mais elaborada com o objetivo de identificar os três nomes mais populares em cada década, a partir de 1950.
 
-Para isso, utilizei uma CTE (Common Table Expression) nomeada como ranked_names. Dentro dela, primeiro agrupei os dados por nome e década, somando a quantidade total de ocorrências de cada nome naquele intervalo. A década foi calculada utilizando FLOOR(ano / 10) * 10.
-
-Depois, apliquei a função ROW_NUMBER() com PARTITION BY decada e ORDER BY total DESC para numerar os nomes em ordem de popularidade dentro de cada década.
+Para isso, utilizei uma CTE nomeada como ranked_names. Dentro dela, primeiro agrupei os dados por nome e década, somando a quantidade total de ocorrências de cada nome naquele intervalo. A década foi calculada utilizando FLOOR(ano / 10) * 10. Depois, apliquei a função ROW_NUMBER() com PARTITION BY decada e ORDER BY total DESC para numerar os nomes em ordem de popularidade dentro de cada década.
 
 Na consulta final, selecionei apenas os registros com posicao <= 3 para garantir que fossem retornados apenas os três nomes mais utilizados em cada década.
 
