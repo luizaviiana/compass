@@ -65,3 +65,4 @@ Aqui estão as sprints que estarei desenvolvendo ao longo da minha jornada na Co
 | Sprint 02 | Python  | [🔗 Acessar](./Sprint_2/README.md) |
 | Sprint 03 | Docker  | [🔗 Acessar](./Sprint_3/README.md) |
 | Sprint 04 | Cloud Computing (AWS) | [🔗 Acessar](./Sprint_4/README.md) |
+| Sprint 05 | Apache Spark | [🔗 Acessar](./Sprint_5/README.md) |

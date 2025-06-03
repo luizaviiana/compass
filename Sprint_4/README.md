@@ -270,6 +270,6 @@ Durante essa sprint, concluí os cursos AWS Partner: Accreditation (Technical) (
 
 | Certificado | Link |
 |--------|------|
-|AWS Partner: Accreditation | [🔗 Accreditation](./Certificados/Certificado%20AWS%20Partner%20Accreditation%20(Technical)%20(Português).png) |
-|AWS Technical Essentials | [🔗 Essentials](./Certificados/Certificado%20AWS%20Technical%20Essentials.png) |
-|AWS Cloud Quest Practitioner | [🔗 Practitioner](https://www.credly.com/badges/e6de8a04-d292-415f-a306-bca96da7177f/public_url) |
+|AWS Partner Sales Accreditation | [🔗 Sales Accreditation](./Certificados/AWS%20Partner%20Sales%20Accreditation.pdf) |
+|AWS Partner Cloud Economics Course | [🔗 Cloud Economics](./Certificados/AWS%20Partner%20Cloud%20Economics%20Course%20Assessment.pdf) |
+|AWS Cloud Quest Practitioner | [🔗 Cloud Quest](https://www.credly.com/badges/e6de8a04-d292-415f-a306-bca96da7177f/public_url) |
