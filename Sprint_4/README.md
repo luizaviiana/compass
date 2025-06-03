@@ -29,6 +29,7 @@ A Sprint 4 foi especialmente desafiadora para mim, já que foi meu primeiro cont
     - 2.1 [Lab AWS S3](#21-lab-aws-s3)
     - 2.2 [Lab AWS Athena](#22-lab-aws-athena)
     - 2.3 [Lab AWS Lambda](#23-lab-aws-lambda)
+    - 2.4 [Lab AWS - Limpeza de recursos ](#24-lab-aws---limpeza-de-recursos)
 
 
 3. [Certificados](#certificados)
