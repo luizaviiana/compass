@@ -266,7 +266,7 @@ Em seguida, removi a camada personalizada que criei na AWS Lambda, bem como a fu
 # Certificados
 
 
-Durante essa sprint, concluí os cursos AWS Partner: Accreditation (Technical) (Português) e AWS Technical Essentials. A seguir, compartilho os certificados correspondentes:
+Durante essa sprint, concluí os cursos AWS Partner: Sales Accreditation (Business) (Português), Cloud Economics (Português) e Cloud Quest Practitioner. A seguir, compartilho os certificados correspondentes:
 
 | Certificado | Link |
 |--------|------|
