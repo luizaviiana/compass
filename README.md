@@ -61,6 +61,7 @@ Aqui estão as sprints que estarei desenvolvendo ao longo da minha jornada na Co
 
 | Sprint | Descrição | Link |
 |--------|-----------|------|
-| Sprint 01 | SQL e Modelagem de Dados  | [🔗 Acessar](./Sprint%201/README.md) |
-| Sprint 02 | Python  | [🔗 Acessar](./Sprint%202/README.md) |
-| Sprint 03 | Docker  | [🔗 Acessar](./Sprint_3/) |
+| Sprint 01 | SQL e Modelagem de Dados  | [🔗 Acessar](./Sprint_1/README.md) |
+| Sprint 02 | Python  | [🔗 Acessar](./Sprint_2/README.md) |
+| Sprint 03 | Docker  | [🔗 Acessar](./Sprint_3/README.md) |
+| Sprint 04 | Cloud Computing (AWS) | [🔗 Acessar](./Sprint_4/README.md) |

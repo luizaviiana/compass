@@ -1,4 +1,0 @@
-with open('arquivo_texto.txt', 'r', encoding='utf-8') as arquivo:
-    conteudo = arquivo.read()
-
-print(conteudo, end="")
