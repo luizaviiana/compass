@@ -204,12 +204,67 @@ Nesse desafio o objetivo é explorar as capacidades do serviço AWS S3. A seguir
 
 **Lab AWS Lambda**
 
+No console do AWS Lambda, selecionei criar uma função, onde comecei uma do zero, defini o nome como MyLambdaFunction, em runtime, escolhi Python 3.9 e a arquitetura x86_64. Cliquei em “Criar função”, e após alguns instantes, a função foi criada com sucesso e fui redirecionada para o editor de código do Lambda.
+
 ![Evidência 1](./Exercícios/Exercício3/Evidências/Evidencia1.png)
 
+O console da AWS cria automaticamente um arquivo chamado lambda_function.py com um código inicial, então, substituí esse código pelo script, que acessa o arquivo CSV no S3 e utiliza a biblioteca Numpy e Pandas para realizar a operação. Cliquei em Deploy para que ocorresse a alteração do código e realizei o teste da Lambda clicando em Test e escolhendo o nome testeS3.
+
+![Evidência 2](./Exercícios/Exercício3/Evidências/Evidencia2.png)
+
+Ao executar o teste ocorreu um erro pois o serviço AWS Lambda não possui a biblioteca pandas. Precisei criar uma layer para importar estas bibliotecas necessárias a Lambda.
+
+![Evidência 3](./Exercícios/Exercício3/Evidências/Evidencia3.png)
+
+Assim, foi necessário preparar uma Layer personalizada contendo a biblioteca pandas, já que ela não está disponível por padrão no ambiente da AWS Lambda. Para garantir compatibilidade, optou-se por criar essa camada usando um container Docker com o sistema operacional Amazon Linux 2023. O processo começou com a criação de uma pasta e um arquivo Dockerfile, que define a imagem base e os comandos para instalar o Python 3.9, o gerenciador de pacotes pip e o utilitário zip. Esses componentes são necessários para instalar as bibliotecas e compactar os arquivos.
+
+Em seguida, foi construída uma imagem Docker com esse Dockerfile, permitindo a criação de um ambiente isolado e compatível, no qual as bibliotecas necessárias podem ser instaladas corretamente para posterior uso como layer na função Lambda.
+
+![Evidência 4](./Exercícios/Exercício3/Evidências/Evidencia4.png)
+
+
+Após criar a imagem Docker, acessei o shell do container para configurar a estrutura da layer. Dentro do container, criei a pasta layer_dir/python, onde instalei a biblioteca pandas com o comando pip3 install -t ..
+
+Em seguida, compactei a pasta python em um arquivo minha-camada-pandas.zip e copiei o .zip do container para a máquina local usando docker cp. Como o arquivo pode ultrapassar 10 MB, fiz o upload para o bucket S3, seguindo a recomendação da AWS para layers maiores.
+
+![Evidência 5](./Exercícios/Exercício3/Evidências/Evidencia5.png)
+
+![Evidência 6](./Exercícios/Exercício3/Evidências/Evidencia6.png)
+
+Na etapa, acessei o console do AWS Lambda e criei uma nova camada chamada PandasLayer. Selecinoei a opção de upload via URL do S3 e coloquei o link do arquivo minha-camada-pandas.zip previamente enviado. Defini a arquitetura como x86_64 e o tempo de execução como Python 3.9. Por fim, foi feita a criação da camada.
+
+![Evidência 7](./Exercícios/Exercício3/Evidências/Evidencia7.png)
+
+ Após isso, vinculei a camada criada à função Lambda, em que acessei a função no console, abri a seção de camadas e adicionei a PandasLayer personalizada criada anteriormente. 
+
+![Evidência 8](./Exercícios/Exercício3/Evidências/Evidencia8.png)
+
+Executando o teste configurado anteriormente, o retorno esperado indicou que era recomendado aumentar o tempo limite e a memória da função.
+
+![Evidência 9](./Exercícios/Exercício3/Evidências/Evidencia9.png)
+
+Assim, segui essa recomendação e aumentei tanto o tempo limite quanto a memória da função.
+
+![Evidência 10](./Exercícios/Exercício3/Evidências/Evidencia10.png)
+
+Após executar após esse ajuste a função retornou a resposta indicando que o arquivo foi processado, mostrando o número de linhas lidas.
+
+![Evidência 11](./Exercícios/Exercício3/Evidências/Evidencia11.png)
+
+
+
+## 2.4 Lab AWS - Limpeza de recursos
+
+Após concluir todas as etapas do laboratório na AWS e salvar todos os códigos e evidências no meu GitHub, realizei a limpeza completa dos recursos utilizados para evitar cobranças desnecessárias. Comecei excluindo todos os arquivos que foram usados ou gerados durante o processo no bucket S3, como o arquivo nomes.csv e o minha-camada-pandas.zip.
+
+Em seguida, removi a camada personalizada que criei na AWS Lambda, bem como a função Lambda utilizada no projeto. Também verifiquei se não havia  arquivos residuais, assim, finalizei o laboratório com todos os recursos devidamente limpos, mantendo apenas os registros e scripts relevantes salvos localmente e no repositório.
+
+![Evidência 12](./Exercícios/Exercício3/Evidências/Evidencia12.png)
 
 
 ---
 
+<br>
 
 # Certificados
 
