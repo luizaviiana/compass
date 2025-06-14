@@ -53,27 +53,35 @@ Por meio da análise inicial, foi possível identificar as principais informaç�
 
 
 - Qual a média da proporção de mulheres nos elencos de filmes de guerra em cada década?
+
 Objetivo: analisar a evolução histórica da participação feminina nos elencos ao longo do tempo.
 
 - Como evoluiu a proporção entre homens e mulheres nos elencos principais desses filmes?
+
 Objetivo: investigar se houve mudanças no equilíbrio de gênero entre os papéis principais.
 
 - Quais filmes de guerra tiveram o maior e o menor percentual de mulheres no elenco?
+
 Objetivo: destacar os filmes de guerra que apresentaram os maiores e menores percentuais de mulheres no elenco, evidenciando casos de maior inclusão ou de baixa representatividade feminina.
 
 - Há diferença na recepção crítica (nota média e número de votos) entre filmes com maior presença feminina e os com menor presença feminina?
+
 Objetivo: avaliar se existe alguma correlação entre a representatividade feminina e a avaliação do público.
 
 - Qual o perfil das personagens femininas nesses filmes?
+
 Objetivo: investigar se as mulheres ocupam papéis de destaque (protagonistas, oficiais, guerreiras) ou se predominam em papéis secundários.
 
 - Como a participação feminina varia entre as diferentes décadas e qual a relação com a presença de diretoras ou cineastas mulheres?
+
 objetivo: relacionar a evolução da representatividade feminina no elenco com a atuação de diretoras.
 
 - Quais diretoras estão associadas a uma maior representatividade feminina nos filmes de guerra?
+
 Objetivo: mapear quais cineastas contribuíram para ampliar a diversidade de gênero nesse gênero cinematográfico.
 
 - Existe alguma tendência regional ou país onde a presença feminina nos filmes de guerra é maior?
+
 Objetivo: analisar se determinadas regiões ou países apresentam maior inclusão de mulheres em seus elencos de filmes de guerra.
 
 
