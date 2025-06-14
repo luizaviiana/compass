@@ -40,7 +40,7 @@ A Sprint 4 foi especialmente desafiadora para mim, já que foi meu primeiro cont
 
 # [Desafio](./Desafio/) 
 
-Nesse desafio da Sprint 3, o objetivo foi colocar em prática os conceitos aprendidos dos serviços da AWS e análise de dados, integrando conhecimentos adquiridos durante o PB e aprofundados em estudos complementares. 
+Nesse desafio da Sprint 4, o objetivo foi colocar em prática os conceitos aprendidos dos serviços da AWS e análise de dados, integrando conhecimentos adquiridos durante o PB e aprofundados em estudos complementares. 
 
 Os arquivos utilizados para a realização do desafio estão organizados em pastas por etapas, acompanhando as fases do desenvolvimento, e podem ser encontrados na *Pasta Desafio*. As evidências do processo estão armazenadas na *Pasta Evidências*. Para um detalhamento completo do desafio, recomendo consultar o README da pasta *Readme Desafio*, nele estão os arquivos no formato Jupyter Notebook para execução de cada etapa, os arquivos CSV que foram utilizados e os arquivos resultantes das análises. Seguem os links:
 

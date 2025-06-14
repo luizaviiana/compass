@@ -37,15 +37,17 @@ Durante a Sprint 5, aprofundei meus conhecimentos em Apache Spark além de algun
 
 ---
 
+# [Desafio](./Desafio/) 
 
+Neste desafio, o objetivo principal foi aplicar e integrar conhecimentos adquiridos sobre serviços AWS e análise de dados, desenvolvendo um Data Lake simplificado para o domínio de Filmes e Séries. O projeto envolve as etapas de ingestão, armazenamento, processamento e consumo dos dados, contemplando diferentes fontes: arquivos CSV locais e dados coletados via API do TMDB.
 
+Para isso, foram criados scripts em Python executados em containers Docker e funções Lambda na AWS, visando carregar e organizar os dados em camadas distintas no Amazon S3, respeitando padrões de organização e formatos específicos. Ao longo do desafio, são explorados conceitos de arquitetura de dados, modelagem dimensional e uso de ferramentas como Apache Spark para processamento.
 
+Os arquivos utilizados para a realização do desafio estão organizados em pastas por etapas, acompanhando as fases do desenvolvimento, e podem ser encontrados na *Pasta Desafio*. As evidências do processo estão armazenadas na *Pasta Evidências*. Para um detalhamento completo do desafio, recomendo consultar o README da pasta *Readme Desafio*. Seguem os links:
 
-
-
-
-
-
+- [Pasta Desafio](./Desafio/) 
+- [Pasta Evidências](./Evidências/)
+- [Readme Desafio](./Desafio/README.md)
 
 
 <br>
