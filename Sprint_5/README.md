@@ -58,7 +58,7 @@ Na segunda etapa, desenvolvi um processo de ingestão via API, com foco na colet
 
 ## 2.1 Apache Spark - Contador de palavras
 
-Neste desafio, a proposta foi de realizar uma atividade utilizando o framework Apache Spark dentro de um container Docker. A atividade envolveu desde o download da imagem jupyter/all-spark-notebook, que já vem com o Spark e o Jupyter instalados, até a criação de um container, o acesso ao Jupyter Lab e a utilização do shell PySpark. O arquivo analisado foi o meu *README Principal* do repositório do GitHub, o qual foi baixado e processado utilizando comandos do Spark. Mais adiante, vou detalhar os passos que segui, os comandos utilizados e os resultados obtidos durante a execução dessa tarefa.
+Neste exercício, a proposta foi de realizar uma atividade utilizando o framework Apache Spark dentro de um container Docker. A atividade envolveu desde o download da imagem jupyter/all-spark-notebook, que já vem com o Spark e o Jupyter instalados, até a criação de um container, o acesso ao Jupyter Lab e a utilização do shell PySpark. O arquivo analisado foi o meu *README Principal* do repositório do GitHub, o qual foi baixado e processado utilizando comandos do Spark. Mais adiante, vou detalhar os passos que segui, os comandos utilizados e os resultados obtidos durante a execução dessa tarefa.
 
 | Arquivo | Link |
 |--------|------|
