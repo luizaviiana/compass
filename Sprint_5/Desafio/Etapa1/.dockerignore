@@ -1,0 +1,8 @@
+.env
+movies.csv
+series.csv
+__pycache__/
+*.pyc
+.gitignore
+.git/
+*.log

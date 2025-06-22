@@ -1,0 +1,17 @@
+Q1:
+
+A artista que mais aparece na lista é Taylor Swift, com um total de 4 turnês.
+Essas turnês faturaram em média $381,518,786.50 cada uma.
+
+Q2:
+
+A turnê mais lucrativa, considerando apenas as que começaram e terminaram no mesmo ano, foi 'Renaissance World Tour' da cantora Beyoncé.
+A média de faturamento dessa turnê foi $10,353,571.00.
+
+Q3:
+
+Essas são as 3 turnês com maior faturamento por show individual:
+- 'The Eras Tour', da artista Taylor Swift, arrecadou em média $13,928,571.43 por apresentação.
+- 'Renaissance World Tour', da artista Beyoncé, arrecadou em média $10,353,571.43 por apresentação.
+- 'Reputation Stadium Tour', da artista Taylor Swift, arrecadou em média $7,600,846.21 por apresentação.
+
