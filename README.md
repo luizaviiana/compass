@@ -1,5 +1,3 @@
-
-
 ![👩‍💻 Luiza](./luiza.png)
 
 # 👩‍💻 Ana Luiza Viana 
@@ -66,4 +64,5 @@ Aqui estão as sprints que estarei desenvolvendo ao longo da minha jornada na Co
 | Sprint 03 | Docker  | [🔗 Acessar](./Sprint_3/README.md) |
 | Sprint 04 | Cloud Computing (AWS) | [🔗 Acessar](./Sprint_4/README.md) |
 | Sprint 05 | Apache Spark | [🔗 Acessar](./Sprint_5/README.md) |
-| Sprint 06 | Apache Spark II | [🔗 Acessar](./Sprint_6/README.md) |
+| Sprint 06 | AWS Glue | [🔗 Acessar](./Sprint_6/README.md) |
+
