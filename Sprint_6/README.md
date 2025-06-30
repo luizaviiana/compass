@@ -2,11 +2,12 @@
 
 ## 📌 Resumo
 
+Durante a Sprint 6, aprofundei meus conhecimentos práticos em ferramentas essenciais da AWS para engenharia de dados. Trabalhei principalmente com o AWS Glue, usando crawlers para catalogar os dados brutos e convertidos no Data Catalog, jobs para realizar transformações e conversões dos arquivos JSON para o formato Parquet. Também utilizei o Glue para organizar e monitorar os fluxos de execução, garantindo o particionamento por data e a padronização das estruturas de diretórios no S3. Com o Athena, realizei consultas SQL sobre os dados já estruturados, validando a integridade dos registros e extraindo insights para a próxima etapa analítica do projeto. Essa experiência foi fundamental para consolidar o entendimento do funcionamento de um Data Lake na prática.
 
 
-- **Data & Analytics**: através do D&A, pude ...... . Além disso, também forneceu as principais informações para seguir com a realização dos exercícios e do desafio.
+- **Data & Analytics**: através do D&A, pude executar os exercícios definidos para essa sprint, o que auxiliou a colocar em prática os conhecimentos adquiridos, o Lab AWS Glue foi essencial e ajudou muito para a execução do desafio posteriormente. Além disso, também forneceu as principais informações para seguir com a realização do desafio.
 
-- **AWS - Tutoriais Técnicos - Analytics**: 
+- **AWS - Tutoriais Técnicos - Analytics**: Através da playlist de vídeos pude acompanhar a aplicação de alguns serviços da AWS como o Athena, Glue, Quicksight e como são suas arquiteturas, o que auxiliou a incrementar minha base de conhecimento sobre a AWS.
 
 - **Fundamentals of Analytics on AWS – Part 2 (Português)**: Neste curso, aprofundei meus conhecimentos sobre data lakes, data warehouses e arquiteturas de dados modernas na AWS, complementando os conceitos da Parte 1. Aprendi como serviços como AWS Lake Formation, Amazon Redshift, Amazon S3, AWS Glue e Amazon Athena são usados para projetar soluções escaláveis de análise de dados.
 
@@ -14,6 +15,7 @@
 
 🤔 *Reflexões*
 
+A Sprint 6 foi bastante desafiadora, já que trabalhei com ferramentas novas na AWS. Porém, agora já sinto uma maior confiança e melhor adaptada aos desafios, as dificuldades que enfrentei consegui superá-las com o apoio do meu squad. À medida que fui avançando nos exercícios, fui ganhando mais confiança, e concluir o desafio final foi bastante gratificante. Além disso, me sinto muito grata por todo o suporte que venho recebendo dos monitores, da Scrum Master, do meu time e dos demais membros da PB.
 
 
 
@@ -27,8 +29,8 @@
 
 2. [Exercícios](#exercícios)
     - 2.1 [Geração e massa de dados](#21-geração-e-massa-de-dados)
-    - 2.2 [Apache Spark](#)
-    - 2.3 [Lab AWS Glue](#)
+    - 2.2 [Apache Spark](#22-apache-spark)
+    - 2.3 [Lab AWS Glue](#23-lab-aws-glue)
 
 3. [Certificados](#certificados)
 
@@ -38,7 +40,9 @@
 
 # [Desafio](./Desafio/) 
 
-. Os arquivos utilizados para a realização do desafio estão organizados em pastas por etapas, acompanhando as fases do desenvolvimento, e podem ser encontrados na *Pasta Desafio*. As evidências do processo estão armazenadas na *Pasta Evidências*. Para um detalhamento completo do desafio, recomendo consultar o README da pasta *Readme Desafio*. Seguem os links:
+Nesse desafio dei continuidade à terceira etapa do projeto, o foco foi o processamento e organização dos dados na camada Trusted do Data Lake, utilizando o serviço AWS Glue para transformar os arquivos da camada Raw. Para isso, criei dois jobs em Glue, um para processar os arquivos CSV e outro para os dados da API TMDB no formato JSON, convertendo-os para o formato Parquet e organizando-os conforme o padrão de estrutura definido para o projeto.
+
+Em seguida, configurei e executei crawlers para catalogar esses dados na camada Trusted, garantindo a criação das tabelas no Glue Data Catalog dentro do database dedicado ao projeto. Finalizei a etapa com a validação dos dados via AWS Athena, conferindo a existência das tabelas e a possibilidade de consultas SQL para suportar análises futuras. Essa etapa consolidou a organização da camada Trusted, facilitando o acesso e a consulta dos dados de forma eficiente e padronizada, além de preparar a base para os próximos passos do projeto. Os arquivos utilizados para a realização do desafio estão organizados em pastas por etapas, acompanhando as fases do desenvolvimento, e podem ser encontrados na *Pasta Desafio*. As evidências do processo estão armazenadas na *Pasta Evidências*. Para um detalhamento completo do desafio, recomendo consultar o README da pasta *Readme Desafio*. Seguem os links:
 
 - [Pasta Desafio](./Desafio/) 
 - [Pasta Evidências](./Evidências/)
@@ -154,6 +158,75 @@ Etapa 10 – Nesta etapa, utilizei Spark SQL para contar a quantidade de pessoas
 ![Evidência 10](./Exercícios/Exercício2/Evidências/Evidencia10.png)
 
 <br>
+
+## 2.3 Lab AWS Glue
+
+Neste exercício, fui guiada no laboratório AWS para realizar a construção de um processo de ETL simplificado utilizando o serviço AWS Glue. A seguir, descrevo cada etapa do processo, incluindo os códigos desenvolvidos:
+
+| Arquivo | Link |
+|--------|------|
+| Etapa1.ipynb | [🔗 Etapa1.ipynb](./Exercícios/Exercício3/Etapa1.ipynb) |
+<br>
+
+>Resolução:
+
+Etapa 1 – Nesta etapa, criei um script em Python para enviar o arquivo nomes.csv para o bucket compass-ana-lab-glue na AWS S3, no caminho lab-glue/input/nomes.csv. Utilizei as bibliotecas boto3, dotenv e os para configurar o cliente S3 com as credenciais armazenadas em um arquivo .env. O script verifica se o bucket já existe e, caso não exista, o cria dinamicamente de acordo com a região definida (us-east-1). Em seguida, realiza o upload do arquivo para o caminho especificado.
+
+![Evidência 1](./Exercícios/Exercício3/Evidências/Evidencia1.png)
+
+Etapa 2 – Fiz a criação da a role AWSGlueServiceRole-Lab4 no console IAM da AWS. A role foi configurada para ser assumida pelo serviço AWS Glue e recebeu permissões para facilitar a execução de jobs no ambiente de laboratório. Durante a criação, associei as seguintes policies gerenciadas pela AWS: AmazonS3FullAccess, AWSLakeFormationDataAdmin, AWSGlueConsoleFullAccess e CloudWatchFullAccess. Com isso, o Glue poderá acessar o S3, utilizar o Lake Formation, executar notebooks e gerar logs no CloudWatch.
+
+![Evidência 2](./Exercícios/Exercício3/Evidências/Evidencia2.png)
+
+Etapa 3 – Configurei o AWS Glue pela opção “Prepare your account for AWS Glue”, criando a role padrão recomendada e concedendo acesso total ao S3, permitindo que o Glue execute jobs, crawlers e notebooks com acesso aos dados armazenados no S3, além de registrar logs e operar com permissões adequadas no ambiente de laboratório.
+
+![Evidência 3](./Exercícios/Exercício3/Evidências/Evidencia3.png)
+
+Etapa 4 – Acessei o serviço AWS Lake Formation e, ao primeiro acesso, adicionei permissões administrativas à minha conta clicando em Add myself. Em seguida, criei um database no Data Catalog do Glue, com o nome glue-lab, utilizando o catálogo padrão da conta.
+
+![Evidência 4](./Exercícios/Exercício3/Evidências/Evidencia4.png)
+
+Etapa 5 – Antes de criar o job no AWS Glue, analisei localmente o arquivo nomes.csv utilizando PySpark no Jupyter Notebook. Configurei as variáveis de ambiente necessárias para iniciar a SparkSession e executei um script que realiza a leitura do CSV, infere o schema, aplica um filtro para selecionar apenas os registros do ano de 1934 e exibe as primeiras linhas do resultado, aescrita no formato Parquet foi omitida localmente para evitar conflitos com dependências do Hadoop. Essa etapa foi essencial para validar a lógica do processamento antes da execução na nuvem.
+
+
+![Evidência 5](./Exercícios/Exercício3/Evidências/Evidencia5.png)
+
+
+Após a validação, criei o job job_aws_glue_lab_4 no serviço AWS Glue com o objetivo de processar o arquivo nomes.csv armazenado no S3. O job foi configurado para ler o CSV, aplicar um filtro para selecionar apenas os registros referentes ao ano de 1934 e escrever o resultado no formato Parquet em um novo diretório no bucket.
+
+Os parâmetros do job foram definidos como:
+
+--S3_INPUT_PATH = s3://compass-ana-lab-glue/lab-glue/input/nomes.csv
+--S3_TARGET_PATH = s3://compass-ana-lab-glue/lab-glue/output/nomes_1934.parquet
+
+![Evidência 6](./Exercícios/Exercício3/Evidências/Evidencia6.png)
+
+![Evidência 7](./Exercícios/Exercício3/Evidências/Evidencia7.png)
+
+![Evidência 8](./Exercícios/Exercício3/Evidências/Evidencia8.png)
+
+
+Etapa 5.2 – Nesta etapa segui a mesma lógica da anterior, iniciei testando todo o script localmente no Jupyter Notebook destinado à etapa 5, utilizando o PySpark. Fiz isso para garantir que as transformações funcionassem corretamente antes de aplicar no ambiente da AWS e, assim, evitar custos desnecessários. Após validar o funcionamento, adaptei o código para o ambiente do AWS Glue.
+
+![Evidência 9](./Exercícios/Exercício3/Evidências/Evidencia9.png)
+
+No script do AWS Glue, iniciei o job capturando os argumentos de entrada para identificar os caminhos no S3 e o nome do job, criei os contextos necessários e realizei a leitura do arquivo nomes.csv no S3 como DynamicFrame, convertendo-o para DataFrame para aplicar as transformações. Verifiquei o schema e converti os nomes para letras maiúsculas com a função upper(). Em seguida, contei o total de registros e agrupei os dados por ano e sexo, somando os totais e ordenando os anos de forma decrescente. Utilizei uma janela de partição para identificar o nome mais frequente por sexo e ano e depois agrupei os dados novamente por ano, somando os totais e ordenando os 10 primeiros anos de forma crescente, após isso, converti o DataFrame final de volta para DynamicFrame.
+
+
+![Evidência 10](./Exercícios/Exercício3/Evidências/Evidencia10.png)
+
+
+Por fim, escrevi os dados transformados de volta no S3, no formato JSON, com particionamento pelas colunas sexo e ano, no caminho s3://compass-ana-lab-glue/lab-glue/frequencia_registro_nomes_eua.
+
+![Evidência 11](./Exercícios/Exercício3/Evidências/Evidencia11.png)
+
+
+Etapa 6 – Criei um crawler no AWS Glue para catalogar os dados gravados anteriormente no S3 em formato JSON, particionados por sexo e ano. Nomeei o crawler como FrequenciaRegistroNomesCrawler e apontei como fonte de dados o caminho s3://compass-ana-lab-glue/lab-glue/frequencia_registro_nomes_eua/. Configurei a role AWSGlueServiceRole-Lab4 para permissões e defini como banco de destino o glue-lab, com execução do tipo On Demand. Após a criação, executei o crawler com sucesso, e ele criou automaticamente a tabela frequencia_registro_nomes_eua no Glue Catalog.
+
+Finalizei acessando o Athena para validar os dados catalogados, configurei o local de saída das queries como s3://compass-ana-lab-glue/lab-glue/athena-results/, e consegui executar a visualização dos dados diretamente via SQL no Athena.
+
+![Evidência 12](./Exercícios/Exercício3/Evidências/Evidencia12.png)
+
 
 ---
 
