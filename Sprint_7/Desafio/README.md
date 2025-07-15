@@ -56,7 +56,7 @@ As tabelas criadas foram:
 
 - **dimTempo**: dimensão temporal criada a partir dos anos de lançamento dos filmes presentes na tabela csv_movies. Inclui as colunas id_tempo, ano e decada, permitindo análises históricas e agrupamentos por período. Essa tabela é essencial para analisar a evolução da representatividade feminina ao longo das décadas.
 
-- **dimPais**: construída a partir dos campos origin_country e production_countries da tabela tmdb_movies. Nessa tabela usei a função explode, gerando uma coluna chamada id_pais com os códigos dos países e , em paralelo,  extrai os nomes dos países. Ambas as extrações. Essa dimensão permite avaliar quais países mais produziram filmes com maior representação feminina.
+- **dimPais**: construída a partir dos campos origin_country e production_countries da tabela tmdb_movies. Nessa tabela usei a função explode, gerando uma coluna chamada id_pais com os códigos dos países e , em paralelo,  extrai os nomes dos países. Essa dimensão permite avaliar quais países mais produziram filmes com maior representação feminina.
 
 - **dimDiretor**: criada com base na equipe técnica dos filmes, campo credits.crew da API TMDB. Contém as colunas id_diretor, nome_diretor e genero. Como um filme pode ter múltiplos diretores, foi necessário criar uma tabela ponte, filmeDiretor, para garantir o relacionamento muitos-para-muitos. Essa dimensão é importante para explorar a influência da direção na presença feminina no elenco.
 
