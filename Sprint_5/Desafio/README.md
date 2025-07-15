@@ -89,7 +89,7 @@ Objetivo: mapear quais cineastas contribuíram para ampliar a diversidade de gê
 
 - Existe alguma tendência regional ou país onde a presença feminina nos filmes de guerra é maior?
 
-Objetivo: analisar se determinadas regiões ou países apresentam maior inclusão de mulheres em seus elencos de filmes de guerra.-
+Objetivo: analisar se determinadas regiões ou países apresentam maior inclusão de mulheres em seus elencos de filmes de guerra.
 
 
 <br>
