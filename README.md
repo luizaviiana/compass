@@ -66,4 +66,5 @@ Aqui estão as sprints que estarei desenvolvendo ao longo da minha jornada na Co
 | Sprint 05 | Apache Spark | [🔗 Acessar](./Sprint_5/README.md) |
 | Sprint 06 | AWS Glue | [🔗 Acessar](./Sprint_6/README.md) |
 | Sprint 07 | Data Warehouse| [🔗 Acessar](./Sprint_7/README.md) |
+| Sprint 08 | QuickSight | [🔗 Acessar](./Sprint_8/README.md) |
 
